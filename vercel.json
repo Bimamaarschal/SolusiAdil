@@ -1,7 +1,1 @@
-{
-    "routes": [
-      { "src": "/register", "dest": "/register" },
-      { "src": "/login", "dest": "/login" },
-      { "src": "/beranda", "dest": "/beranda" }
-    ]
-  }
+{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
