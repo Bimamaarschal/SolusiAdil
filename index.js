@@ -18,6 +18,7 @@ app.use(session({
 app.use('/', express.static('public'));
 app.use('/', registerRoutes);
 app.use('/', loginRoutes);
+app.use('/', routesRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
