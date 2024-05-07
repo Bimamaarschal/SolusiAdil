@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session'); // Tambahkan impor untuk session
+const session = require('express-session'); 
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 
