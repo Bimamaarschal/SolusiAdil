@@ -1,8 +1,7 @@
 {
     "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/"
-        }
+      { "src": "/register", "dest": "/register" },
+      { "src": "/login", "dest": "/login" },
+      { "src": "/beranda", "dest": "/beranda" }
     ]
   }
