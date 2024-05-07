@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session'); 
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
+const routesRoutes = require('./routes/routesRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(session({
 }));
 
 app.use('/', express.static('public'));
+
 app.use('/', registerRoutes);
 app.use('/', loginRoutes);
 app.use('/', routesRoutes);
