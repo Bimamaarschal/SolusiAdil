@@ -20,7 +20,7 @@ router.get('/logout', loginController.logoutUser);
 
 router.get('/beranda', (req, res) => {
     if (req.session.user) {
-        const filePath = path.join(__dirname, 'public', 'beranda.html');
+        const filePath = path.join(__dirname, '../public', 'beranda.html');
         res.sendFile(filePath);
     } else {
         res.redirect('/masuk');
