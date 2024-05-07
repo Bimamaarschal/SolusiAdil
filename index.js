@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session'); 
+const session = require('express-session'); // Tambahkan impor untuk session
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
-const routesRoutes = require('./routes/routesRoutes');
 
 const app = express();
 
@@ -17,10 +16,8 @@ app.use(session({
 }));
 
 app.use('/', express.static('public'));
-
 app.use('/', registerRoutes);
 app.use('/', loginRoutes);
-app.use('/', routesRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
