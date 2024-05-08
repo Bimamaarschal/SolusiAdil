@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: 'notsosecret', // Ganti dengan string rahasia yang lebih aman
-    resave: true, // Setel menjadi true jika Anda ingin menyimpan sesi yang telah diubah
-    saveUninitialized: true // Setel menjadi true jika Anda ingin menyimpan sesi yang belum diinisialisasi
+    secret: 'notsosecret', 
+    resave: true,
+    saveUninitialized: true
   }));
   
 app.use('/', express.static('public'));
