@@ -8,12 +8,7 @@ exports.loginUser = async (req, res) => {
       { nik, password }
     );
     req.session.user = response.data;
-    const userDataResponse = await axios.get(`https://solusiadil-api.vercel.app/users/nik/${nik}`);
-    const userData = userDataResponse.data;
-
-    req.session.userData = userData;
-
-    res.redirect("/beranda");
+    res.redirect(`/beranda?nik=${nik}`);
   } catch (error) {
     res.status(400).send(error.response.data);
   }

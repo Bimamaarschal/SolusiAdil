@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const loginController = require('../controllers/loginController');
+const berandaController = require('../controllers/berandaController');
 
 function checkLoggedIn(req, res, next) {
     if (req.session.user) {
@@ -17,14 +18,6 @@ router.get('/masuk', checkLoggedIn, (req, res) => {
 
 router.post('/login', loginController.loginUser);
 router.get('/logout', loginController.logoutUser);
-
-router.get('/beranda', (req, res) => {
-    if (req.session.user) {
-        const filePath = path.join(__dirname, '../public', 'beranda.html');
-        res.sendFile(filePath);
-    } else {
-        res.redirect('/masuk');
-    }
-});
+router.get('/beranda', berandaController.getBeranda);
 
 module.exports = router;
