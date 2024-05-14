@@ -24,13 +24,26 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  console.log(req.session); // Log session data
+  next();
+});
+
+app.get('/set-session', (req, res) => {
+  req.session.isLoggedIn = true; // Set session data
+  res.send('Session set');
+});
+
+app.get('/check-session', (req, res) => {
+  console.log(req.session.isLoggedIn); // Check session data
+  res.send('Session checked');
+});
+// Route to render the homepage
 // Route to render the homepage
 app.get('/', (req, res) => {
-  // Set isLoggedIn based on session state
-  const isLoggedIn = req.session.isLoggedIn || false; // Default to false if not set
-  // Render the index.ejs file, passing the isLoggedIn variable
-  res.render('index', { isLoggedIn });
+  res.render('index', { session: req.session });
 });
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
