@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
+const routeRoutes = require('./routes/routeRoutes');
 
 const app = express();
 
@@ -22,10 +23,7 @@ app.use('/', express.static('public'));
 
 app.use('/', registerRoutes);
 app.use('/', loginRoutes);
-
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
+app.use('/', routeRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
