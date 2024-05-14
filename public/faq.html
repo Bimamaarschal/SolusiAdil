@@ -1,23 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="nik">NIK:</label><br>
-        <input type="text" id="nik" name="nik" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Login">
-    </form>
-</body>
-</html> -->
-
-
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -84,10 +64,9 @@
 					<!-- Pilihan - Awal -->
 					<div class="col-lg-6 col-md-5 col-12">
 						<ul class="solusiadil-top-link">
-							<li><a href="index"><i class="fa-solid fa-home"></i></a></li>
 							<li><a href="tentangkami">Solusi Adil</a></li>
 							<li><a href="kontak">Kontak</a></li>
-							<li><a href="faq">FAQ</a></li>
+							<li><a href="faq" style="background: black; color: white; padding: 10px;">FAQ</a></li>
 						</ul>
 					</div>
 					<!-- Pilihan - Akhir -->
@@ -103,87 +82,70 @@
 			</div>
 		</div>
 		<!-- Solusiadil-topbar - Akhir -->
-	</header>
-	<!-- Header Area - Akhir -->
-
-	<!-- Daftar - Awal -->
-	<section class="appointment">
-		<div class="container" style="padding-bottom: 150px;">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title">
-						<h2>Masuk</h2>
-						<i class="fa-solid fa-key"></i>
-						<p>Masuk Solusi Adil untuk Menggunakan Semua Fitur Pelayanan</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-12">
+		<!-- Solusiadil-inner - Awal-->
+		<div class="header-inner">
+			<div class="container">
+				<div class="inner">
 					<div class="row">
-						<div class="col-lg-12 col-md-12 col-12">
-							<form class="form" action="/login" method="POST">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<small>NIK yang telah terdaftar</small>
-											<input id="nik" name="nik" type="text">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<small>Password</small>
-											<input id="password" name="password" type="password">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-7 col-md-8 col-12">
-										<p>Apakah Anda belum memiliki akun Solusi Adil ? <a href="register"
-												style="background: black; color: white; padding: 10px;">Masuk</a></p>
-									</div>
-									<div class="col-lg-5 col-md-4 col-12">
-										<div class="form-group text-lg-right text-md-right text-center">
-											<div class="button">
-												<button type="submit" class="btn primary" value="Login">Masuk</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</form>
+						<div class="col-lg-3 col-md-3 col-12">
+							<div class="logo" style="padding-bottom: 20px; width: auto; height: auto;">
+								<a href="index"><img src="img/logo.png" alt="#"></a>
+							</div>
+							<div class="mobile-nav"></div>
 						</div>
-					</div>
-				</div>
-	</section>
-	<!-- Daftar - Akhir -->
-
-
-
-	<!-- Bergabung - Awal -->
-	<section id="bergabung" class="solusiadil-bergabung section">
-		<div class="container">
-			<div class="row ">
-				<div class="col-lg-6  col-12">
-					<div class="subscribe-text ">
-						<h6>Bergabung di Discord</h6>
-						<p class="">Bergabunglah di Discord Solusi Adil untuk mendapatkan informasi eksklusif terkait
-							hukum dan interaksi langsung dengan ahli.</p>
-					</div>
-				</div>
-				<div class="col-lg-6  col-12">
-					<div class="subscribe-form ">
-						<form action="mail/mail.php" method="get" target="_blank" class="solusiadil-bergabung-inner">
-							<input name="EMAIL" placeholder="Isi Email Anda" class="common-input"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Email Anda'" required=""
-								type="email">
-							<button class="btn">Kirim Permintaan</button>
-						</form>
+						<div class="col-lg-7 col-md-9 col-12">
+							<div class="main-menu">
+								<nav class="navigation">
+									<ul class="nav menu">
+										<li><a href="index">Rumah </a></li>
+										<li><a href="konsultasi">Konsultasi </a></li>
+										<li><a href="layanan">Layanan </a></li>
+										<li><a href="tentangkami">Tentang Kami</a></li>
+										<li><a href="blog">Blog </a></li>
+										<li><a href="index#bergabung">Bergabung</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-2 col-12">
+							<div class="get-quote">
+								<a href="masuk" class="btn primary">Masuk / Daftar</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- Solusiadil-inner - Akhir-->
+	</header>
+	<!-- Header Area - Akhir -->
+
+	<!-- FAQ - Awal -->
+	<section class="services section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>FAQ</h2>
+						<p>Pertanyaan yang Sering Solusi Adil Terima</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-12">
+					<div class="single-service">
+						<i class="fa-regular fa-circle-question"></i>
+						<h4><a href="service-details">Apa Itu Solusi Adil?</a></h4>
+						<p>Solusi adil webiste yang memberikan keadilan sejati, menyelaraskan hak dan kewajiban untuk mewujudkan
+							penyelesaian perkara hukum yang berkeadilan. </p>
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
 	</section>
-	<!-- Bergabung - Akhir -->
+	<!-- FAQ - Akhir -->
 
 	<!-- Footer - Awal -->
 	<footer id="akhir" class="footer ">
@@ -260,8 +222,6 @@
 		</div>
 	</footer>
 	<!-- Footer - Akhir -->
-
-	<script src="function/masuk.js"></script>
 
 	<!-- Solusi Adil - JS Library -->
 	<script src="js/jquery.min.js"></script>

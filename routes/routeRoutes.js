@@ -11,8 +11,8 @@ function checkLoggedIn(req, res, next) {
     }
 }
 
-router.get('/',  checkLoggedIn,  (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+router.get('/tentangkami',  (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'tentangkami.html'));
 });
 
 module.exports = router;

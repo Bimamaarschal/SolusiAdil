@@ -10,7 +10,7 @@
 	<meta name='copyright' content=''>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Judul -->
-	<title>Solusi Adil</title>
+	<title>Solusi Adil 1</title>
 	<link rel="icon" href="img/favicon.png">
 
 	<!-- Fonts -->
@@ -109,9 +109,15 @@
 						</div>
 						<div class="col-lg-2 col-12">
 							<div class="get-quote">
-								<a href="/masuk" class="btn primary">Masuk / Daftar</a>
+							   <!-- Render login button based on session state -->
+							   <% if (isLoggedIn) { %>
+								<!-- User is logged in -->
+							  <% } else { %>
+								<!-- User is not logged in -->
+								<a href="masuk" class="btn primary">Masuk / Daftar</a>
+							  <% } %>
 							</div>
-						</div>
+						  </div>
 					</div>
 				</div>
 			</div>

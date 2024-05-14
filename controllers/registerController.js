@@ -9,12 +9,13 @@ exports.registerUser = async (req, res) => {
       nik,
       alamat,
       email,
-      foto,
+      foto = "FOTO BELUM DI INPUT",
       jenis_kelamin,
       no_tlp,
       password,
       tgl_lahir,
     } = req.body;
+
     const response = await axios.post(
       "https://solusiadil-api.vercel.app/users",
       {
@@ -30,6 +31,7 @@ exports.registerUser = async (req, res) => {
         tgl_lahir,
       }
     );
+
     if (response.status === 201) {
       res.send(`
         <html>
