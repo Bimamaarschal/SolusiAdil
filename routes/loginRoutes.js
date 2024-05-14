@@ -6,7 +6,7 @@ const berandaController = require('../controllers/berandaController');
 
 function checkLoggedIn(req, res, next) {
     if (req.session.user) {
-        res.redirect('/beranda');
+        res.redirect('/kembali');
     } else {
         next();
     }
