@@ -4,11 +4,14 @@ const session = require('express-session');
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const routeRoutes = require('./routes/routeRoutes');
+const path = require('path'); 
 
 const app = express();
 
 
 app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,8 +21,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
   }));
-  
-app.use('/', express.static('public'));
 
 app.use('/', registerRoutes);
 app.use('/', loginRoutes);

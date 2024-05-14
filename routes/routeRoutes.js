@@ -1,4 +1,3 @@
-// registerRoutes.js
 
 const express = require('express');
 const router = express.Router();
@@ -12,7 +11,7 @@ function checkLoggedIn(req, res, next) {
     }
 }
 
-router.get('/',  checkLoggedIn, (req, res) => {
+router.get('/',  checkLoggedIn,  (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
