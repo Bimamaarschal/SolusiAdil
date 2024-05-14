@@ -6,14 +6,14 @@ const berandaController = require('../controllers/berandaController');
 
 function checkLoggedIn(req, res, next) {
     if (req.session.user) {
-        res.redirect('/kembali');
+        res.redirect('/beranda');
     } else {
         next();
     }
 }
 
-router.get('/masuk', checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'login.html'));
+router.get('/masuk',  checkLoggedIn, (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'masuk.html'));
 });
 
 router.post('/login', loginController.loginUser);
