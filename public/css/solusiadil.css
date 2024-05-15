@@ -850,11 +850,11 @@ body{
 	padding-top:0;
 }
 .Solusiadil-kenapa.index2{
-	padding-top:100px;
+	padding-top:10px;
 	padding-bottom:0px;
 }
 .Solusiadil-kenapa.testimonial-page{
-	padding-top:100px;
+	padding-top:80px;
 	padding-bottom:0px;
 }
 .Solusiadil-kenapa .solusiadil-single-kenapa{
@@ -866,7 +866,7 @@ body{
 	position: absolute;
 	content: "";
 	right: -72px;
-	top: 60px;
+	top: 30px;
 	width: 118px;
 	border-bottom: 3px dotted #06080a;
 }
@@ -877,7 +877,7 @@ body{
 	position:relative;
 }
 .Solusiadil-kenapa .solusiadil-single-kenapa .signle-icon i{
-	font-size:50px;
+	font-size:30px;
 	color:#06080a;
 	position:absolute;
 	left:50%;
@@ -899,7 +899,7 @@ body{
 	border-color:transparent;
 }
 .Solusiadil-kenapa .solusiadil-single-kenapa h3{
-	padding-top: 128px;
+	padding-top: 115px;
 	color:#06080a;
 	font-weight:600;
 	font-size:21px;
@@ -919,7 +919,7 @@ body{
 	background-color: #000;
 }
 .solusiadil-funfacts.section{
-	padding:120px 0;
+	padding:50px 0;
 }
 .solusiadil-funfacts{
 	background-size:cover;
@@ -936,7 +936,7 @@ body{
 	height: 70px;
 	width: 70px;
 	line-height: 67px;
-	font-size: 28px;
+	font-size: 32px;
 	text-align: center;
 	padding: 0;
 	margin: 0;
@@ -955,7 +955,7 @@ body{
 	border-color:transparent;
 }
 .solusiadil-funfacts .solusiadil-single-fun .content {
-	padding-left: 80px;
+	padding-left: 70px;
 }
 .solusiadil-funfacts .solusiadil-single-fun span {
 	color: #fff;
