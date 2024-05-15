@@ -2,15 +2,29 @@ const axios = require("axios");
 
 exports.loginUser = async (req, res) => {
   try {
-    const { nik, password } = req.body;
+    const { id_masyarakat, password } = req.body;
     const response = await axios.post(
       "https://solusiadil-api.vercel.app/users/login",
-      { nik, password }
+      { id_masyarakat, password }
     );
     req.session.user = response.data;
-    res.redirect(`/beranda?nik=${nik}`);
+    res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
   } catch (error) {
-    res.status(400).send(error.response.data);
+    console.error("Error:", error);
+    res.send(`
+      <html>
+        <head>
+          <title>Login Gagal</title>
+          <script>
+            alert("User Gagal Login karena ${error.message}");
+            window.location.href = "/masuk";
+          </script>
+        </head>
+        <body>
+          <p>Redirecting...</p>
+        </body>
+      </html>
+    `);
   }
 };
 

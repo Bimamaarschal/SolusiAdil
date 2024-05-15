@@ -1,7 +1,7 @@
 async function fetchUserData() {
     try {
-        const nik = new URLSearchParams(window.location.search).get("nik");
-        const apiUrl = `https://solusiadil-api.vercel.app/users/nik/${nik}`;
+        const id_masyarakat = new URLSearchParams(window.location.search).get("id_masyarakat");
+        const apiUrl = `https://solusiadil-api.vercel.app/users/idmasyarakat/${id_masyarakat}`;
         const response = await fetch(apiUrl);
         const userData = await response.json();
         const uniqueId = Object.keys(userData)[0];
@@ -9,7 +9,7 @@ async function fetchUserData() {
 
         const userInfoElement = document.getElementById('userInfo');
         userInfoElement.innerHTML = `
-            <strong>Nik:</strong> ${user.id_masyarakat}<br>
+            <strong>Nik:</strong> ${user.nik}<br>
             <strong>Nama:</strong> ${user.nama}<br>
             <!-- Tambahkan informasi pengguna lainnya sesuai kebutuhan -->
         `;
@@ -21,42 +21,3 @@ async function fetchUserData() {
     }
 }
 document.addEventListener('DOMContentLoaded', fetchUserData);
-
-{/* <form class="form" method="post" action="mail/mail.php">
-									<div class="row">
-										<div class="col-lg-6 col-md-6 col-12">
-											<div class="form-group">
-												<i class="fa fa-user"></i>
-												<input type="text" name="first-name" placeholder="Nama Lengkap"
-													required="required">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-12">
-											<div class="form-group">
-												<i class="fa fa-envelope"></i>
-												<input type="email" name="email" placeholder="Your Email"
-													required="required">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group">
-												<i class="fa-solid fa-scale-balanced"></i>
-												<input type="text" name="last-name" placeholder=" Pengajuan Pertanyaan"
-													required="required">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group message">
-												<i class="fa fa-pencil"></i>
-												<textarea name="message" rows="7"
-													placeholder="keterangan Lengkap"></textarea>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group button">
-												<button type="submit" class="btn primary"><i
-														class="fa fa-send"></i>Ajukan Konsultasi</button>
-											</div>
-										</div>
-									</div>
-								</form> */}

@@ -1,4 +1,14 @@
 
+
+    function generateRandomID() {
+        var id = Math.floor(Math.random() * 900000000) + 100000000;
+        return id.toString();
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("id_masyarakat").value = generateRandomID();
+    });
+
+
 function validateNik(input) {
   const regex = /[^0-9]/g;
   if (regex.test(input.value)) {

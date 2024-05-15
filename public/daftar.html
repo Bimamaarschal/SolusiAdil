@@ -33,12 +33,6 @@
 </head>
 
 <body>
-
-	<div id="successPopup" class="popup">
-		<h2>Selamat daftar berhasil</h2>
-		<div id="countdown" class="countdown"></div>
-	</div>
-
 	<!-- Header Area - Awal -->
 	<header class="header">
 		<!-- Solusiadil-topbar - Awal-->
@@ -86,10 +80,16 @@
 				<div class="col-lg-12 col-md-12 col-12">
 					<form class="form" action="/register" method="POST">
 						<div class="row">
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<small>ID Solusi Adil Anda - Mohon rahasiakan dan catat untuk dapat masuk akun Solusi Adil - 9 Digit</small>
+									<input style="font-weight: bolder; color: black;" id="id_masyarakat" name="id_masyarakat" type="text" readonly>
+								</div>
+							</div>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>NIK / No SIM / No Induk Pegawai/Mahasiswa</small>
-									<input id="nik" name="nik" type="text" oninput="validateNik(this)" required >
+									<input id="nik" name="nik" type="text" oninput="validateNik(this)">
 									<small id="error-message-nik" style="color:red; display:none;">Hanya Angka 0-9 dan
 										tidak lebih dari 13 karakter</small>
 								</div>
@@ -127,14 +127,14 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Nomor Telepon - Gunakan format 0 contoh 0821</small>
-									<input id="tlp" name="tlp" type="text" onkeydown="validateFirstDigit(event)" oninput="validateTLP(this)">
+									<input id="no_tlp" name="no_tlp" type="text" onkeydown="validateFirstDigit(event)" oninput="validateTLP(this)" required>
 									<small id="error-message-tlp" style="color:red; display:none;">Hanya mengandung angka dan maksimal 13 digit</small>
 								</div>
 							</div>
 							<div class="col-lg-12 col-md-12 col-12">
 								<div class="form-group">
 									<small>Alamat Domisili</small>
-									<input id="alamat" name="alamat" type="text" id="alamat" required >
+									<input id="alamat" name="alamat" type="text" id="alamat" required>
 								</div>
 							</div>
 							<div class="col-lg-12 col-md-12 col-12">

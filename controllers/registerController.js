@@ -1,10 +1,9 @@
 const axios = require("axios");
-const { v4: uuidv4 } = require("uuid");
 
 exports.registerUser = async (req, res) => {
   try {
-    const id_masyarakat = uuidv4();
     const {
+      id_masyarakat,
       nama,
       nik,
       alamat,
@@ -52,6 +51,19 @@ exports.registerUser = async (req, res) => {
     }
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ success: false, message: error.message });
+    res.send(`
+      <html>
+        <head>
+          <title>Registration Failed</title>
+          <script>
+            alert("User Gagal Daftar karena ${error.message}");
+            window.location.href = "/daftar";
+          </script>
+        </head>
+        <body>
+          <p>Redirecting...</p>
+        </body>
+      </html>
+    `);
   }
 };
