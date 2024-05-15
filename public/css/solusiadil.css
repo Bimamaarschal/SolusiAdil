@@ -319,8 +319,8 @@ body{
 }
 .get-quote .btn{
 	color:#fff;
-	background-color:#06080a ;
-	border-radius: 3px;
+	background-color:#000000 ;
+	border-radius: 2px;
 }
 .header .logo {
 	float: left;
@@ -2744,7 +2744,7 @@ body{
 }
 .appointment.single-page {
 	background: #fff;
-	padding-top: 100px 0;
+	padding-top: 10px 0;
 	padding: 0;
 	padding: 100px 0;
 }
@@ -2776,6 +2776,9 @@ body{
 	font-weight:400;
 	border-radius:0;
 	border-radius: 4px;
+}
+.appointment .form {
+	padding: 0px 200px 0px 200px;
 }
 .appointment .form textarea{
 	width: 100%;
@@ -3989,7 +3992,7 @@ body{
 	position:relative;
 }
 .footer .footer-top{
-	padding:100px 0px;
+	padding:50px 0px;
 	position:relative;
 	background:#06080a;
 }
@@ -4039,6 +4042,9 @@ body{
 }
 .footer .single-footer.f-link li a i{
 	margin-right:10px;
+}
+.footer .single-footer.f-link li{
+	font-size: 12px;
 }
 .footer .single-footer.f-link li{
 	display:block;

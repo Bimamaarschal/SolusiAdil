@@ -15,8 +15,8 @@ function checkLoggedIn(req, res, next) {
 
 router.post('/register', registerController.registerUser);
 
-router.get('/register',  checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'register.html'));
+router.get('/daftar',  checkLoggedIn, (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'daftar.html'));
 });
 
 module.exports = router;

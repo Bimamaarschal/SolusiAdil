@@ -1,64 +1,66 @@
 
-document.getElementById("registrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+function validateNik(input) {
+  const regex = /[^0-9]/g;
+  if (regex.test(input.value)) {
+      input.value = input.value.replace(regex, '');
+      document.getElementById('error-message-nik').style.display = 'block';
+  } else {
+      document.getElementById('error-message-nik').style.display = 'none';
+  }
+  if (input.value.length > 13) {
+      input.value = input.value.slice(0, 13);
+      document.getElementById('error-message-nik').style.display = 'block';
+  }
+}
 
-  var id_masyarakat = "null";
-  var nik = document.getElementById("nik").value;
-  var nama = document.getElementById("nama").value;
-  var tgl_lahir = document.getElementById("tgl_lahir").value;
-  var jenis_kelamin = document.getElementById("jenis_kelamin").value;
-  var alamat = document.getElementById("alamat").value;
-  var no_tlp = document.getElementById("no_tlp").value;
-  var foto = "null";
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+function validateNama(input) {
+  const regex = /[^a-zA-Z\s]/g;
+  if (regex.test(input.value)) {
+      input.value = input.value.replace(regex, '');
+      document.getElementById('error-message-nama').style.display = 'block';
+  } else {
+      document.getElementById('error-message-nama').style.display = 'none';
+  }
+  if (input.value.length > 150) {
+      input.value = input.value.slice(0, 150);
+      document.getElementById('error-message-nama').style.display = 'block';
+  }
+}
 
-  var data = {
-    id_masyarakat: id_masyarakat,
-    nik: nik,
-    nama: nama,
-    tgl_lahir: tgl_lahir,
-    jenis_kelamin: jenis_kelamin,
-    alamat: alamat,
-    no_tlp: no_tlp,
-    foto: foto,
-    email: email,
-    password: password,
-  };
+function validateFirstDigit(event) {
+  const firstDigit = event.key;
+  if (event.target.selectionStart === 0 && firstDigit !== '0') {
+      event.preventDefault();
+  }
+}
 
-  fetch(
-    "https://solusiadil-api.vercel.app/users",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }
-  )
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error("Internet Bermasalah.");
-    })
-    .then((jsonResponse) => {
-      console.log("Registrasi berhasil:", jsonResponse);
-      document.getElementById("successPopup").style.display = "block";
-      var count = 7;
-      var countdownElem = document.getElementById("countdown");
-      var countdownInterval = setInterval(function() {
-        count--;
-        countdownElem.innerHTML = "Halaman akan dialihkan dalam " + count + " detik. Untuk masuk SolusiAdil";
-        if (count <= 0) {
-          clearInterval(countdownInterval);
-          document.getElementById("successPopup").style.display = "none";
-          window.location.href = "./masuk";
-        }
-      }, 1000);
-    })
-    .catch((error) => {
-      console.error("Registrasi gagal:", error);
-      alert("Registrasi gagal. Terjadi kesalahan: " + error.message);
-    });
-});
+function validateTLP(input) {
+  const regex = /[^0-9]/g;
+  if (regex.test(input.value) || input.value.length > 13) {
+      input.value = input.value.replace(regex, '');
+      document.getElementById('error-message-tlp').style.display = 'block';
+  } else {
+      document.getElementById('error-message-tlp').style.display = 'none';
+  }
+  
+  if (input.value.length > 13) {
+      input.value = input.value.slice(0, 13);
+  }
+}
+
+function validatePassword(input) {
+  const password = input.value;
+  const passwordMessage = document.getElementById('password-message');
+  const passwordSafeMessage = document.getElementById('password-safe-message');
+  input.value = input.value.replace(/\s/g, '');
+  const hasAlphabet = /[a-zA-Z]/.test(input.value);
+  const hasNumber = /[0-9]/.test(input.value);
+
+  if (input.value.length > 8 && hasAlphabet && hasNumber) {
+      passwordSafeMessage.style.display = 'block';
+      passwordMessage.style.display = 'none';
+  } else {
+      passwordSafeMessage.style.display = 'none';
+      passwordMessage.style.display = 'block';
+  }
+}

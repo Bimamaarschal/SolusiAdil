@@ -5,27 +5,25 @@ const path = require('path');
 
 function checkLoggedIn(req, res, next) {
     if (req.session.user) {
-        res.redirect('/beranda');
-    } else {
         next();
+    } else {
+        res.redirect('/masuk');
     }
 }
-
-
 
 router.get('/tentangkami', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'tentangkami.html'));
 });
 
-router.get('/blog',  (req, res) => {
+router.get('/blog',  checkLoggedIn, (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'blog.html'));
 });
 
-router.get('/konsultasi',  (req, res) => {
+router.get('/konsultasi', checkLoggedIn, (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'konsultasi.html'));
 });
 
-router.get('/layanan', (req, res) => {
+router.get('/layanan',  checkLoggedIn, (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'layanan.html'));
 });
 
