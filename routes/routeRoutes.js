@@ -20,7 +20,7 @@ router.get('/blog',  checkLoggedIn, (req, res) => {
 });
 
 router.get('/konsultasi', checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'konsultasi.html'));
+    res.render('konsultasi');
 });
 
 router.get('/layanan',  checkLoggedIn, (req, res) => {
