@@ -233,6 +233,27 @@ body{
 .color-plate span.color12{
 	background:#44ce6f;
 }
+
+body {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+	display: none;
+  }
+  ::-webkit-scrollbar {
+	width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+	background: #06080a;
+	border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  } 
 /*=============================
 	Akhir Global
 ===============================*/
