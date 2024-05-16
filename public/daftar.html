@@ -82,8 +82,10 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-12">
 								<div class="form-group">
-									<small>ID Solusi Adil Anda - Mohon rahasiakan dan catat untuk dapat masuk akun Solusi Adil - 9 Digit</small>
-									<input style="font-weight: bolder; color: black;" id="id_masyarakat" name="id_masyarakat" type="text" readonly>
+									<small>ID Solusi Adil Anda - Mohon rahasiakan dan catat untuk dapat masuk akun
+										Solusi Adil - 9 Digit</small>
+									<input style="font-weight: bolder; color: black;" id="id_masyarakat"
+										name="id_masyarakat" type="text" readonly>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12">
@@ -97,7 +99,7 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Nama sesuai KTP</small>
-									<input id="nama" name="nama" type="text" oninput="validateNama(this)" required >
+									<input id="nama" name="nama" type="text" oninput="validateNama(this)" required>
 									<small id="error-message-nama" style="color:red; display:none;">Hanya Alfabet A-Z
 										dan tidak lebih dari 150 karakter</small>
 								</div>
@@ -105,19 +107,19 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Email - Pastikan gunakan format email / @...</small>
-									<input id="email" name="email" type="email" required >
+									<input id="email" name="email" type="email" required>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Tanggal Lahir</small>
-									<input id="tgl_lahir" type="date" name="tgl_lahir" id="datepicker" required >
+									<input id="tgl_lahir" type="date" name="tgl_lahir" id="datepicker" required>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Jenis Kelamin</small>
-									<select class="form-control wide" id="jenis_kelamin" name="jenis_kelamin" required >
+									<select class="form-control wide" id="jenis_kelamin" name="jenis_kelamin" required>
 										<option value="Pilih" disabled selected>Pilih</option>
 										<option value="Pria">Pria</option>
 										<option value="Wanita">Wanita</option>
@@ -127,8 +129,10 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="form-group">
 									<small>Nomor Telepon - Gunakan format 0 contoh 0821</small>
-									<input id="no_tlp" name="no_tlp" type="text" onkeydown="validateFirstDigit(event)" oninput="validateTLP(this)" required>
-									<small id="error-message-tlp" style="color:red; display:none;">Hanya mengandung angka dan maksimal 13 digit</small>
+									<input id="no_tlp" name="no_tlp" type="text" onkeydown="validateFirstDigit(event)"
+										oninput="validateTLP(this)" required>
+									<small id="error-message-tlp" style="color:red; display:none;">Hanya mengandung
+										angka dan maksimal 13 digit</small>
 								</div>
 							</div>
 							<div class="col-lg-12 col-md-12 col-12">
@@ -141,9 +145,11 @@
 								<div class="form-group">
 									<small>Sandi</small>
 									<input id="password" name="password" type="password"
-										oninput="validatePassword(this)" required >
-									<small id="password-message" style="color:red; display:none;">Sandi masih beresiko. Gunakan lebih dari 8 karakter dan mengandung alfabet serta angka</small>
-									<small id="password-safe-message" style="color:green; display:none;">Sandi sudah baik</small>
+										oninput="validatePassword(this)" required>
+									<small id="password-message" style="color:red; display:none;">Sandi masih beresiko.
+										Gunakan lebih dari 8 karakter dan mengandung alfabet serta angka</small>
+									<small id="password-safe-message" style="color:green; display:none;">Sandi sudah
+										baik</small>
 								</div>
 							</div>
 						</div>

@@ -7,8 +7,33 @@ exports.loginUser = async (req, res) => {
       "https://solusiadil-api.vercel.app/users/login",
       { id_masyarakat, password }
     );
-    req.session.user = response.data;
-    res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
+    
+    // Pastikan respons dari server berisi data pengguna yang diharapkan
+    if(response.data.message === "Login successful" && response.data.userData) {
+      // Simpan informasi pengguna di session
+      const userData = response.data.userData;
+      req.session.user = {
+        nama: userData.nama,
+        id_masyarakat: userData.id_masyarakat
+      };
+      res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
+    } else {
+      // Jika respons tidak sesuai, kembalikan ke halaman login dengan pesan error
+      res.send(`
+        <html>
+          <head>
+            <title>Login Gagal</title>
+            <script>
+              alert("User Gagal Login karena data pengguna tidak valid");
+              window.location.href = "/masuk";
+            </script>
+          </head>
+          <body>
+            <p>Redirecting...</p>
+          </body>
+        </html>
+      `);
+    }
   } catch (error) {
     console.error("Error:", error);
     res.send(`
@@ -27,6 +52,7 @@ exports.loginUser = async (req, res) => {
     `);
   }
 };
+
 
 exports.logoutUser = (req, res) => {
   req.session.destroy((err) => {
