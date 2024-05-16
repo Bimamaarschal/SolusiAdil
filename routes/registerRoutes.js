@@ -1,22 +1,13 @@
-// registerRoutes.js
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const path = require('path');
-const registerController = require('../controllers/registerController');
+const registerController = require("../controllers/registerController");
+const cekLogin = require("../middlewares/cekLogin");
 
-function checkLoggedIn(req, res, next) {
-    if (req.session.user) {
-        res.redirect('/beranda');
-    } else {
-        next();
-    }
-}
-
-router.post('/register', registerController.registerUser);
-
-router.get('/daftar',  checkLoggedIn, (req, res) => {
-    res.render('daftar');
+router.get("/daftar", cekLogin, (req, res) => {
+  const { authError } = req;
+  res.render("daftar", { authError });
 });
+
+router.post("/register", registerController.registerUser);
 
 module.exports = router;

@@ -1,18 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const loginController = require('../controllers/loginController');
-const berandaController = require('../controllers/berandaController');
-const authenticateJWT = require('../middlewares/authenticateJWT');
-const checkLoggedInJWT = require('../middlewares/checkLoggedInJWT');
+const loginController = require("../controllers/loginController");
+const cekLogin = require("../middlewares/cekLogin");
 
-
-router.get('/masuk', checkLoggedInJWT, (req, res) => {
-    const { authError } = req;
-    res.render('masuk', { authError });
+router.get("/masuk", cekLogin, (req, res) => {
+  const { authError } = req;
+  res.render("masuk", { authError });
 });
 
-router.post('/login',  loginController.loginUser);
-router.get('/logout', loginController.logoutUser);
-router.get('/beranda', authenticateJWT, berandaController.getBeranda);
+router.post("/login", loginController.loginUser);
+router.get("/logout", loginController.logoutUser);
 
 module.exports = router;

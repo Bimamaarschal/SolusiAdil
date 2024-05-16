@@ -1,7 +1,7 @@
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'your_jwt_secret_key'; // Ganti dengan secret key yang aman
+const JWT_SECRET = 'your_jwt_secret_key';
 
 exports.loginUser = async (req, res) => {
   try {
