@@ -16,14 +16,12 @@ app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(
-  session({
-    secret: "notsosecret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  })
-);
+app.use(session({
+  secret: 'secret-key',
+  resave: false,
+  saveUninitialized: true, // Set to true to allow uninitialized session
+  cookie: { secure: false } // Change this in production
+}));
 
 app.use("/", registerRoutes);
 app.use("/", loginRoutes);
