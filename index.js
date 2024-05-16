@@ -21,6 +21,7 @@ app.use(
     secret: "notsosecret",
     resave: true,
     saveUninitialized: true,
+    cookie: { secure: false }
   })
 );
 
