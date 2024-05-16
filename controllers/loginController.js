@@ -35,7 +35,7 @@ exports.loginUser = async (req, res) => {
             </script>
           </head>
           <body>
-            <p>Redirecting...</p>
+            <p>Kembalikan...</p>
           </body>
         </html>
       `);
@@ -52,7 +52,7 @@ exports.loginUser = async (req, res) => {
           </script>
         </head>
         <body>
-          <p>Redirecting...</p>
+          <p>Kembalikan...</p>
         </body>
       </html>
     `);

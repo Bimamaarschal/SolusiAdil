@@ -42,7 +42,7 @@ exports.registerUser = async (req, res) => {
             </script>
           </head>
           <body>
-            <p>Redirecting...</p>
+            <p>Kembalikan...</p>
           </body>
         </html>
       `);
@@ -61,7 +61,7 @@ exports.registerUser = async (req, res) => {
           </script>
         </head>
         <body>
-          <p>Redirecting...</p>
+          <p>Kembalikan...</p>
         </body>
       </html>
     `);
