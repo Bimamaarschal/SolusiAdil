@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
     secret: "notsosecret",
-    resave: true,
+    resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: true }
   })
 );
 
