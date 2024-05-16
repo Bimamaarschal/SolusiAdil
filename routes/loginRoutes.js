@@ -13,7 +13,7 @@ function checkLoggedIn(req, res, next) {
 }
 
 router.get('/masuk',  checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'masuk.html'));
+    res.render('masuk');
 });
 
 router.post('/login', loginController.loginUser);

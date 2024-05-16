@@ -11,33 +11,33 @@ function checkLoggedIn(req, res, next) {
     }
 }
 
-router.get('/tentangkami', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'tentangkami.html'));
-});
-
-router.get('/blog',  checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'blog.html'));
-});
-
 router.get('/konsultasi', checkLoggedIn, (req, res) => {
     res.render('konsultasi');
 });
 
-router.get('/layanan',  checkLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'layanan.html'));
+router.get('/tentangkami', (req, res) => {
+    res.render('tentangkami');
+});
+
+router.get('/blog', checkLoggedIn, (req, res) => {
+    res.render('blog');
+});
+
+router.get('/layanan', checkLoggedIn, (req, res) => {
+    res.render('layanan');
 });
 
 router.get('/kontak', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'kontak.html'));
+    res.render('kontak');
 });
 
-
 router.get('/faq', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'faq.html'));
+    res.render('faq');
 });
 
 router.get('/gabung', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'gabung.html'));
+    res.render('gabung');
 });
+
 
 module.exports = router;

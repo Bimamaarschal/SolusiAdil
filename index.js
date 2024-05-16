@@ -23,6 +23,9 @@ app.use(session({
   cookie: { secure: false }
 }));
 
+app.get('/', (req, res) => {
+  res.render('index');
+});
 app.use("/", registerRoutes);
 app.use("/", loginRoutes);
 app.use("/", routeRoutes);

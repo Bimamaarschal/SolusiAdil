@@ -8,9 +8,7 @@ exports.loginUser = async (req, res) => {
       { id_masyarakat, password }
     );
     
-    // Pastikan respons dari server berisi data pengguna yang diharapkan
     if(response.data.message === "Login successful" && response.data.userData) {
-      // Simpan informasi pengguna di session
       const userData = response.data.userData;
       req.session.user = {
         nama: userData.nama,
@@ -18,7 +16,6 @@ exports.loginUser = async (req, res) => {
       };
       res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
     } else {
-      // Jika respons tidak sesuai, kembalikan ke halaman login dengan pesan error
       res.send(`
         <html>
           <head>
