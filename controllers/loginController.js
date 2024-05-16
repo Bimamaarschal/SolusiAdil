@@ -3,6 +3,19 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'your_jwt_secret_key';
 
+function generateRandomString(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+const randomStringLength = 50;
+const randomString = generateRandomString(randomStringLength);
+
+
 exports.loginUser = async (req, res) => {
   try {
     const { id_masyarakat, password } = req.body;
@@ -23,7 +36,7 @@ exports.loginUser = async (req, res) => {
         { expiresIn: '1h' }
       );
       res.cookie('token', token, { httpOnly: true });
-      res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
+      res.redirect(`/beranda?bima-safety-key=${randomString}&${id_masyarakat}&${randomString}`);
     } else {
       res.send(`
         <html>
