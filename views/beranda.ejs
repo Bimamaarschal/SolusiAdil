@@ -5,9 +5,9 @@
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="Site keywords here">
+	<meta name="keywords" content="Solusi Adil">
 	<meta name="description" content="">
-	<meta name='copyright' content=''>
+	<meta name='copyright' content='bimamaarschal'>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Judul -->
 	<title>Solusi Adil</title>
@@ -114,40 +114,46 @@
 	<section class="news-single section" style="padding-top: 5px;">
 		<div class="container">
 			<div class="row">
+				<div class="col-lg-12 col-2">
+					<div class="row">
+						<div class="col-12">
+							<div class="comments-form">
+								<h1 style="font-size: 18px;">Dashboard</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<div class="col-lg-8 col-12">
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1>Selamat datang di halaman beranda!</h1>
-								<p>Nama: <%= nama %>
-								</p>
-								<p>ID Masyarakat: <%= idMasyarakat %>
-								</p>
+								<h1 style="font-size: 18px;">Dashboard</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
+
 				<div class="col-lg-4 col-12">
 					<div class="main-sidebar">
 						<div class="single-widget recent-post">
-							<h3 class="title">Konsultasi Baru</h3>
+							<h3 class="title">Anda Masuk Sebagai </h3>
 							<div class="single-post">
 								<div class="image">
 									<img src="img/favicon.png" alt="#">
 								</div>
 								<div class="content">
-									<h5><a href="#">Judul.</a></h5>
-									<ul class="comment">
-										<li><i class="fa fa-calendar" aria-hidden="true"></i>Maret 11, 2024</li>
-										<li><i class="fa fa-commenting-o" aria-hidden="true"></i>-</li>
+									<h5  style="font-size: 12px;"><a href="#"><%= nama %></a></h5>
+									<ul class="comment"  style="font-size: 12px;">
+										<li><i class="fa-solid fa-address-card" aria-hidden="true"></i><%= idMasyarakat %></li>
+										<li><i class="fa-solid fa-id-card" aria-hidden="true"></i><%= Nik %></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
@@ -173,10 +179,11 @@
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-4 col-md-6 col-12">
 						<div class="single-footer">
-							<h2>Solusi Adil</h2>
-							<p>Solusi adil memberikan keadilan sejati, menyelaraskan hak dan kewajiban untuk mewujudkan
+							<h2 style="font-size: 22px;">Solusi Adil</h2>
+							<p style="font-size: 12px;">Solusi adil memberikan keadilan sejati, menyelaraskan hak dan
+								kewajiban untuk mewujudkan
 								penyelesaian perkara hukum yang berkeadilan.</p>
 							<ul class="social">
 								<li><a href="https://www.facebook.com/solusiadil/"><i class="icofont-facebook"></i></a>
@@ -192,7 +199,7 @@
 					</div>
 					<div class="col-lg-3 col-md-6 col-12">
 						<div class="single-footer f-link">
-							<h2>Akses</h2>
+							<h2>Akses Cepat</h2>
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<ul>
@@ -207,6 +214,9 @@
 										<li><a href="blog"><i class="fa fa-caret-right" aria-hidden="true"></i> Blog
 											</a>
 										</li>
+										<li><a href="blog"><i class="fa fa-caret-right" aria-hidden="true"></i> Kontak
+											</a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -215,14 +225,9 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<div class="single-footer">
 							<h2>Keterangan</h2>
-							<p> Website Solusi Adil di buat untuk keperluan Skripsi dan Sistem pelayanan yang akan
+							<p style="font-size: 12px;"> Website Solusi Adil di buat untuk keperluan Skripsi dan Sistem
+								pelayanan yang akan
 								digunakan di lingkup Kota Bandung </p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer">
-							<h2>Penutup</h2>
-							<p>Dalam Proses Pengembangan </p>
 						</div>
 					</div>
 				</div>
@@ -233,7 +238,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
 						<div class="copyright-content">
-							<p>© Copyright 2024 | Di Rancang dan Di Buat oleh <a
+							<p style="font-size: 13px;">© Copyright 2024 | Di Rancang dan Di Buat oleh <a
 									href="https://www.linkedin.com/in/bimamaarschal/" target="_blank">Bima
 									Maarschal</a> </p>
 						</div>
@@ -243,8 +248,6 @@
 		</div>
 	</footer>
 	<!-- Footer - Akhir -->
-
-	<script src="function/beranda.js"></script>
 
 	<!-- Solusi Adil - JS Library -->
 	<script src="js/jquery.min.js"></script>

@@ -30,7 +30,8 @@ exports.loginUser = async (req, res) => {
       const token = jwt.sign(
         {
           nama: userData.nama,
-          id_masyarakat: userData.id_masyarakat
+          id_masyarakat: userData.id_masyarakat,
+          nik: userData.nik
         },
         JWT_SECRET,
         { expiresIn: '1h' }
