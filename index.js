@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'secret-key',
   resave: false,
-  saveUninitialized: true, // Set to true to allow uninitialized session
-  cookie: { secure: false } // Change this in production
+  saveUninitialized: true,
+  cookie: { secure: false }
 }));
 
 app.use("/", registerRoutes);
