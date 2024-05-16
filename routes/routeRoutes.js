@@ -1,29 +1,40 @@
 
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+const jwt = require('jsonwebtoken');
 
-function checkLoggedIn(req, res, next) {
-    if (req.session.user) {
+const JWT_SECRET = 'your_jwt_secret_key';
+
+const checkLoggedInJWT = (req, res, next) => {
+    const token = req.cookies.token;
+  
+    if (token) {
+      jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+          return res.redirect('/masuk');
+        }
+        req.user = user;
         next();
+      });
     } else {
-        res.redirect('/masuk');
+      res.redirect('/masuk');
     }
-}
-
-router.get('/konsultasi', checkLoggedIn, (req, res) => {
+  };
+  
+router.get('/konsultasi', checkLoggedInJWT, (req, res) => {
     res.render('konsultasi');
 });
+
 
 router.get('/tentangkami', (req, res) => {
     res.render('tentangkami');
 });
 
-router.get('/blog', checkLoggedIn, (req, res) => {
+router.get('/blog', checkLoggedInJWT, (req, res) => {
     res.render('blog');
 });
 
-router.get('/layanan', checkLoggedIn, (req, res) => {
+router.get('/layanan', checkLoggedInJWT, (req, res) => {
     res.render('layanan');
 });
 

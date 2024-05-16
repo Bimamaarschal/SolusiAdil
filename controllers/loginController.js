@@ -1,19 +1,28 @@
-const axios = require("axios");
+const axios = require('axios');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = 'your_jwt_secret_key'; // Ganti dengan secret key yang aman
 
 exports.loginUser = async (req, res) => {
   try {
     const { id_masyarakat, password } = req.body;
     const response = await axios.post(
-      "https://solusiadil-api.vercel.app/users/login",
+      'https://solusiadil-api.vercel.app/users/login',
       { id_masyarakat, password }
     );
-    
-    if(response.data.message === "Login successful" && response.data.userData) {
+
+    if (response.data.message === 'Login successful' && response.data.userData) {
       const userData = response.data.userData;
-      req.session.user = {
-        nama: userData.nama,
-        id_masyarakat: userData.id_masyarakat
-      };
+
+      const token = jwt.sign(
+        {
+          nama: userData.nama,
+          id_masyarakat: userData.id_masyarakat
+        },
+        JWT_SECRET,
+        { expiresIn: '1h' }
+      );
+      res.cookie('token', token, { httpOnly: true });
       res.redirect(`/beranda?usidsolusiadil=${id_masyarakat}`);
     } else {
       res.send(`
@@ -50,13 +59,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-
 exports.logoutUser = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      res.status(500).send("Gagal logout");
-    } else {
-      res.redirect("/");
-    }
-  });
+  res.clearCookie('token');
+  res.redirect("/");
 };
