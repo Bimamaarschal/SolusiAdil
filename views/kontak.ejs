@@ -5,9 +5,9 @@
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="Site keywords here">
+	<meta name="keywords" content="Solusi Adil">
 	<meta name="description" content="">
-	<meta name='copyright' content=''>
+	<meta name='copyright' content='bimamaarschal'>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Judul -->
 	<title>Solusi Adil</title>
@@ -34,27 +34,6 @@
 
 <body>
 
-	<!-- Preloader - Awal -->
-	<!-- <div class="solusiadil-preloader">
-		<div class="loader">
-			<div class="loader-outter"></div>
-			<div class="loader-inner"></div>
-		</div>
-	</div> -->
-	<!-- Preloader - Akhir -->
-
-	<!-- Akses Cepat - Awal -->
-	<!-- <ul class="solusiadil-aksescepat">
-		<a class="get-aksescepat" href="#"><i class="fa fa-commenting"></i></a>
-		<li class="judul-aksescepat">Layanan Cepat</li>
-		<li>Langsung terhubung dengan layanan kosultasi - SOLUSI ADIL</li>
-		<div class="button">
-			<a href=""
-				target="_blank" class="btn">Konsultasi Hukum</a>
-		</div>
-	</ul> -->
-	<!-- Akses Cepat - Akhir -->
-
 	<!-- Header Area - Awal -->
 	<header class="header">
 		<!-- Solusiadil-topbar - Awal-->
@@ -64,8 +43,9 @@
 					<!-- Pilihan - Awal -->
 					<div class="col-lg-6 col-md-5 col-12">
 						<ul class="solusiadil-top-link">
+							<li><a href="/beranda" style="font-size: 15px;"><i class="fa-solid fa-home"></i></a></li>
 							<li><a href="tentangkami">Solusi Adil</a></li>
-							<li><a href="kontak" style="background: black; color: white; padding: 10px;">Kontak</a></li>
+							<li><a href="kontak" style="font-weight: bolder;">Kontak</a></li>
 							<li><a href="faq">FAQ</a></li>
 						</ul>
 					</div>
@@ -82,36 +62,6 @@
 			</div>
 		</div>
 		<!-- Solusiadil-topbar - Akhir -->
-		<!-- Solusiadil-inner - Awal-->
-		<div class="header-inner">
-			<div class="container">
-				<div class="inner">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-12">
-							<div class="logo" style="padding-bottom: 20px; width: auto; height: auto;">
-								<a href="index"><img src="img/logo.png" alt="#"></a>
-							</div>
-							<div class="mobile-nav"></div>
-						</div>
-						<div class="col-lg-7 col-md-9 col-12">
-							<div class="main-menu">
-								<nav class="navigation">
-									<ul class="nav menu">
-										<li><a href="/beranda">Rumah </a></li>
-										<li><a href="konsultasi">Konsultasi </a></li>
-										<li><a href="layanan">Layanan </a></li>
-										<li><a href="tentangkami">Tentang Kami</a></li>
-										<li><a href="blog">Blog </a></li>
-										<li><a href="gabung">Bergabung</a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Solusiadil-inner - Akhir-->
 	</header>
 	<!-- Header Area - Akhir -->
 
@@ -121,26 +71,82 @@
 			<div class="textawal-inner">
 				<div class="row">
 					<div class="col-12">
-						<h2>Kontak</h2>
+						<h2 style="font-size: 25px; font-weight: 100;">Kontak</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- TextAwal - Akhir-->
-
 	<!-- Start Contact Us -->
 	<section class="contact-us section">
 		<div class="container">
+			<div class="inner">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="contact-us-left">
+							<!--Start Google-map -->
+							<div id="myMap"></div>
+							<!--/End Google-map -->
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="contact-us-form">
+							<h2>Kontak Langsung Solusi Adil</h2>
+							<p>Anda dapat menghubungi kami dengan form di bawah ini.</p>
+							<!-- Form -->
+							<form class="form" method="post" action="mail/mail.php">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<input type="text" name="name" placeholder="Name" required="">
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<input type="email" name="email" placeholder="Email" required="">
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<input type="text" name="phone" placeholder="Phone" required="">
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<input type="text" name="subject" placeholder="Subject" required="">
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="form-group">
+											<textarea name="message" placeholder="Your Message" required=""></textarea>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group login-btn">
+											<button class="btn" type="submit">Send</button>
+										</div>
+										<div class="checkbox">
+											<label class="checkbox-inline" for="2"><input name="news" id="2"
+													type="checkbox">Do you want to subscribe our Newsletter ?</label>
+										</div>
+									</div>
+								</div>
+							</form>
+							<!--/ End Form -->
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="contact-info">
-				<div class="row" style="padding-bottom: 10px;">
+				<div class="row">
 					<!-- single-info -->
 					<div class="col-lg-4 col-12 ">
 						<div class="single-info">
 							<i class="icofont icofont-ui-call"></i>
 							<div class="content">
-								<h3>+(62) 888 0188 9923</h3>
-								<p>...@gmail.com</p>
+								<h3>+(000) 1234 56789</h3>
+								<p>info@company.com</p>
 							</div>
 						</div>
 					</div>
@@ -150,8 +156,8 @@
 						<div class="single-info">
 							<i class="icofont-google-map"></i>
 							<div class="content">
-								<h3>Alamat</h3>
-								<p>Kota Cimahi, Jawa Barat</p>
+								<h3>2 Fir e Brigade Road</h3>
+								<p>Chittagonj, Lakshmipur</p>
 							</div>
 						</div>
 					</div>
@@ -161,40 +167,8 @@
 						<div class="single-info">
 							<i class="icofont icofont-wall-clock"></i>
 							<div class="content">
-								<h3>Senin - Jum'at: 8am - 5pm</h3>
-								<p>Saptu - Minggu Tutup</p>
-							</div>
-						</div>
-					</div>
-					<!--/End single-info -->
-				</div>
-				<div class="row">
-					<!-- single-info -->
-					<div class="col-lg-4 col-12 ">
-						<div class="single-info">
-							<i class="icofont-instagram"></i>
-							<div class="content">
-								<h3>solusiadil</h3>
-							</div>
-						</div>
-					</div>
-					<!--/End single-info -->
-					<!-- single-info -->
-					<div class="col-lg-4 col-12 ">
-						<div class="single-info">
-							<i class="icofont-youtube"></i>
-							<div class="content">
-								<h3>solusiadil</h3>
-							</div>
-						</div>
-					</div>
-					<!--/End single-info -->
-					<!-- single-info -->
-					<div class="col-lg-4 col-12 ">
-						<div class="single-info">
-							<i class="icofont-linkedin"></i>
-							<div class="content">
-								<h3>solusiadil</h3>
+								<h3>Mon - Sat: 8am - 5pm</h3>
+								<p>Sunday Closed</p>
 							</div>
 						</div>
 					</div>
@@ -210,10 +184,11 @@
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-4 col-md-6 col-12">
 						<div class="single-footer">
-							<h2>Solusi Adil</h2>
-							<p>Solusi adil memberikan keadilan sejati, menyelaraskan hak dan kewajiban untuk mewujudkan
+							<h2 style="font-size: 22px;">Solusi Adil</h2>
+							<p style="font-size: 12px;">Solusi adil memberikan keadilan sejati, menyelaraskan hak dan
+								kewajiban untuk mewujudkan
 								penyelesaian perkara hukum yang berkeadilan.</p>
 							<ul class="social">
 								<li><a href="https://www.facebook.com/solusiadil/"><i class="icofont-facebook"></i></a>
@@ -229,19 +204,24 @@
 					</div>
 					<div class="col-lg-3 col-md-6 col-12">
 						<div class="single-footer f-link">
-							<h2>Akses</h2>
+							<h2>Akses Cepat</h2>
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<ul>
-										<li><a href="index"><i class="fa fa-caret-right" aria-hidden="true"></i> Solusi
+										<li><a href="/tentangkami"><i class="fa fa-caret-right" aria-hidden="true"></i>
+												Solusi
 												Adil
 											</a></li>
-										<li><a href="layanan"><i class="fa fa-caret-right" aria-hidden="true"></i>
+										<li><a href="/layanan"><i class="fa fa-caret-right" aria-hidden="true"></i>
 												Pelayanan
 											</a></li>
-										<li><a href="faq"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQ </a>
+										<li><a href="/faq"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQ </a>
 										</li>
-										<li><a href="blog"><i class="fa fa-caret-right" aria-hidden="true"></i> Blog
+										<li><a href="/blog"><i class="fa fa-caret-right" aria-hidden="true"></i> Blog
+											</a>
+										</li>
+										<li><a href="/kontak"><i class="fa fa-caret-right" aria-hidden="true"></i>
+												Kontak
 											</a>
 										</li>
 									</ul>
@@ -252,14 +232,9 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<div class="single-footer">
 							<h2>Keterangan</h2>
-							<p> Website Solusi Adil di buat untuk keperluan Skripsi dan Sistem pelayanan yang akan
+							<p style="font-size: 12px;"> Website Solusi Adil di buat untuk keperluan Skripsi dan Sistem
+								pelayanan yang akan
 								digunakan di lingkup Kota Bandung </p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<div class="single-footer">
-							<h2>Penutup</h2>
-							<p>Dalam Proses Pengembangan </p>
 						</div>
 					</div>
 				</div>
@@ -270,7 +245,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
 						<div class="copyright-content">
-							<p>© Copyright 2024 | Di Rancang dan Di Buat oleh <a
+							<p style="font-size: 13px;">© Copyright 2024 | Di Rancang dan Di Buat oleh <a
 									href="https://www.linkedin.com/in/bimamaarschal/" target="_blank">Bima
 									Maarschal</a> </p>
 						</div>

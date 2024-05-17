@@ -34,4 +34,8 @@ router.get("/gabung", cekLoginMasuk, (req, res) => {
   res.render("gabung");
 });
 
+router.get("/jdih", cekLoginMasuk, (req, res) => {
+  res.render("jdih");
+});
+
 module.exports = router;
