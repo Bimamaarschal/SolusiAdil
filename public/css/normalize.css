@@ -649,6 +649,115 @@ AKHIR
 	display: inline-block;
 }
 
+
+.textawal3 {
+	background-image: url('../img/b3.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 120px 0px;
+}
+.textawal3 .textawal3-inner{
+	z-index:22;
+	text-align:center;
+}
+.textawal3 h2{
+	color: #fff;
+	text-transform:capitalize;
+	font-size: 38px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+.textawal3 .bread-list {
+	display: inline-block;
+	margin-top: 20px;
+}
+.textawal3 ul li{
+	display: inline-block;
+	position: relative;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.textawal3 ul li i {
+	margin: 0px 10px;
+	font-size: 14px;
+	font-weight: 600;
+	color:#fff;
+}
+.textawal3 ul li a {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+	margin:0;
+	padding:0;
+}
+.textawal3 ul li a:hover{
+	color:#14191D;
+}
+.textawal3 ul li.active a {
+	color: #fff;
+	display: inline-block;
+}
+
+.textawal4 {
+	background-image: url('../img/b.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 120px 0px;
+}
+.textawal4 .textawal4-inner{
+	z-index:22;
+	text-align:center;
+}
+.textawal4 h2{
+	color: #fff;
+	text-transform:capitalize;
+	font-size: 38px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+.textawal4 .bread-list {
+	display: inline-block;
+	margin-top: 20px;
+}
+.textawal4 ul li{
+	display: inline-block;
+	position: relative;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.textawal4 ul li i {
+	margin: 0px 10px;
+	font-size: 14px;
+	font-weight: 600;
+	color:#fff;
+}
+.textawal4 ul li a {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+	margin:0;
+	padding:0;
+}
+.textawal4 ul li a:hover{
+	color:#14191D;
+}
+.textawal4 ul li.active a {
+	color: #fff;
+	display: inline-block;
+}
+
 /* Pagination CSS */
 .pagination {
 	text-align: left;
