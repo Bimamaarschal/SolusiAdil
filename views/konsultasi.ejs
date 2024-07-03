@@ -102,7 +102,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1 style="font-size: 18px;"><i class="fa-solid fa-comments"></i>  Layanan Konsultasi</h1>
+								<h1 style="font-size: 18px;"><i class="fa-solid fa-comments"></i> Layanan Konsultasi</h1>
 							</div>
 						</div>
 					</div>
@@ -111,37 +111,37 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h2>Perkara Hukum - ID Konsultasi: </h2>
+								<form class="form" action="/konsultasidata" method="POST">
+									<h2 style="display: inline;">Perkara Hukum - ID Konsultasi: <input type="text" name="id_konsultasi" id="id_konsultasi" placeholder="Mohon Tunggu ..." required="required" readonly></h2>
 								<!-- Contact Form -->
-								<form class="form" method="post"
-									action="api/59a596d1-ed05-4f2f-9e33-3087493c98eb/mail.app.js">
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
 												<i class="fa fa-user"></i>
-												<input type="text" name="first-name" placeholder="Nama Lengkap"
-													required="required">
+												<input id="nama_mast" name="nama_mast" type="text" oninput="validateNama(this)" placeholder="Nama Anda" value="<%= nama %>" readonly >
+												<small id="error-message-nama" style="color:red; display:none;">Hanya Alfabet A-Z
+													dan tidak lebih dari 150 karakter</small>
 											</div>
 										</div>
+
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
 												<i class="fa fa-envelope"></i>
-												<input type="email" name="email" placeholder="Your Email"
-													required="required">
+												<input id="id_masyarakat" name="id_masyarakat" type="text" placeholder=" ID Masyarakat" value="<%= id_masyarakat %>" readonly >
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group">
 												<i class="fa-solid fa-scale-balanced"></i>
-												<input type="text" name="last-name" placeholder=" Pengajuan Pertanyaan"
+												<input type="text" name="pertanyaan" placeholder="Pengajuan Pertanyaan Hukum"
 													required="required">
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group message">
 												<i class="fa fa-pencil"></i>
-												<textarea name="message" rows="7"
-													placeholder="keterangan Lengkap"></textarea>
+												<textarea name="keterangan" rows="7"
+													placeholder="Keterangan lengkap terkait perkara hukum yang Anda hadapi"></textarea>
 											</div>
 										</div>
 										<div class="col-12">
@@ -166,10 +166,10 @@
 									<img src="img/favicon.png" alt="#">
 								</div>
 								<div class="content">
-									<h5><a href="#">Judul.</a></h5>
+									<h5><a href="#">Id Konsultasi.</a></h5>
 									<ul class="comment">
-										<li><i class="fa fa-calendar" aria-hidden="true"></i>Maret 11, 2024</li>
-										<li><i class="fa fa-commenting-o" aria-hidden="true"></i>-</li>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i>tanggal</li>
+										<li><i class="fa fa-commenting-o" aria-hidden="true"></i>status</li>
 									</ul>
 								</div>
 							</div>
@@ -275,6 +275,7 @@
 	<!-- Footer - Akhir -->
 
 	<!-- Solusi Adil - JS Library -->
+	<script src="function/konsultasi.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.0.js"></script>
 	<script src="js/jquery-ui.min.js"></script>

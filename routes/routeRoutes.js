@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const berandaController = require("../controllers/berandaController");
+const konsultasiController = require("../controllers/konsultasiController");
 const cekBeranda = require("../middlewares/cekBeranda");
 const cekLoginMasuk = require("../middlewares/cekLoginMasuk");
 
 router.get("/beranda", cekBeranda, berandaController.getBeranda);
 
-router.get("/konsultasi", cekLoginMasuk, (req, res) => {
-  res.render("konsultasi");
-});
+router.get("/konsultasi", cekLoginMasuk, konsultasiController.getKonsultasi);
 
 router.get("/tentangkami", (req, res) => {
   res.render("tentangkami");

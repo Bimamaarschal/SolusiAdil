@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const routeRoutes = require("./routes/routeRoutes");
+const konsultasiRoutes = require("./routes/konsultasiRoutes");
 const path = require("path");
 // const session = require("express-session");
 // const bodyParser = require("body-parser");
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 app.use("/", registerRoutes);
 app.use("/", loginRoutes);
 app.use("/", routeRoutes);
+app.use("/", konsultasiRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
