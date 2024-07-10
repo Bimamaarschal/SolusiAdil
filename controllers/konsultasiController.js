@@ -1,13 +1,34 @@
 const axios = require("axios");
 
-exports.getKonsultasi = (req, res) => {
+exports.getKonsultasi = async (req, res) => {
   if (req.user) {
     const nama = req.user.nama;
     const id_masyarakat = req.user.id_masyarakat;
     const nik = req.user.nik;
-    res.render('konsultasi', { nama: nama, id_masyarakat: id_masyarakat, nik: nik });
+    try {
+      const response = await axios.get(`https://solusiadil-api.vercel.app/konsultasi/idmasyarakat/${id_masyarakat}`);
+      const konsultasiObj = response.data;
+      const konsultasiData = Object.values(konsultasiObj);
+      res.render('konsultasi', { nama: nama, id_masyarakat: id_masyarakat, nik: nik, konsultasiData: konsultasiData });
+    } catch (error) {
+      res.status(500).send('Error fetching data from API');
+    }
   } else {
     res.redirect('/masuk');
+  }
+};
+
+
+exports.getDetailKonsultasi = async (req, res) => {
+  try {
+    const id_konsultasi = req.params.id;
+    const response = await axios.get(`https://solusiadil-api.vercel.app/konsultasi/idkonsultasi/${id_konsultasi}`);
+    const konsultasiData = response.data;
+    console.log('konsultasiData:', konsultasiData); 
+    res.render('detailkonsultasi', { konsultasi: konsultasiData });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Terjadi kesalahan dalam mengambil data konsultasi.');
   }
 };
 

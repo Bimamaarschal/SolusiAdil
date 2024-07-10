@@ -4,5 +4,6 @@ const konsultasiController = require("../controllers/konsultasiController");
 const cekLogin = require("../middlewares/cekLogin");
 
 router.post("/konsultasidata", konsultasiController.konsultasiData);
+router.get("/detailkonsultasi/:id", konsultasiController.getDetailKonsultasi);
 
 module.exports = router;

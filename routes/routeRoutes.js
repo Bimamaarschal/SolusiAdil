@@ -41,5 +41,4 @@ router.get("/panduan", cekLoginMasuk, (req, res) => {
   res.render("panduan");
 });
 
-
 module.exports = router;

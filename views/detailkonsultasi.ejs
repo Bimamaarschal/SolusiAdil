@@ -54,7 +54,8 @@
 						<ul class="solusiadil-top-contact">
 							<li><i class="fa-brands fa-whatsapp"></i>+62 888 0188 9923</li>
 							<li><i class="fa fa-envelope"></i><a href="mailto:-">solusiadil.id@gmail.com</a></li>
-							<li><a href="/logout" style="font-size: 15px;"><i class="fa-solid fa-right-from-bracket"></i>Keluar</a></li>
+							<li><a href="/logout" style="font-size: 15px;"><i
+										class="fa-solid fa-right-from-bracket"></i>Keluar</a></li>
 						</ul>
 					</div>
 					<!-- Kontak - Akhir-->
@@ -102,106 +103,33 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1 style="font-size: 18px;"><i class="fa-solid fa-comments"></i> Layanan Konsultasi</h1>
+								<h1 style="font-size: 18px;"><i style="font-size: 25px;" class="fa-solid fa-comments"></i>  Konsultasi</h1>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 col-12">
+				<div class="col-lg-12 col-6">
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<form class="form" action="/konsultasidata" method="POST">
-									<h2 style="display: inline;">Perkara Hukum - ID Konsultasi: <input type="text" name="id_konsultasi" id="id_konsultasi" placeholder="Mohon Tunggu ..." required="required" readonly></h2>
-								<!-- Contact Form -->
-									<div class="row">
-										<div class="col-lg-6 col-md-6 col-12">
-											<div class="form-group">
-												<i class="fa fa-user"></i>
-												<input id="nama_mast" name="nama_mast" type="text" oninput="validateNama(this)" placeholder="Nama Anda" value="<%= nama %>" readonly >
-												<small id="error-message-nama" style="color:red; display:none;">Hanya Alfabet A-Z
-													dan tidak lebih dari 150 karakter</small>
-											</div>
-										</div>
-
-										<div class="col-lg-6 col-md-6 col-12">
-											<div class="form-group">
-												<i class="fa fa-envelope"></i>
-												<input id="id_masyarakat" name="id_masyarakat" type="text" placeholder=" ID Masyarakat" value="<%= id_masyarakat %>" readonly >
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group">
-												<i class="fa-solid fa-scale-balanced"></i>
-												<input type="text" name="pertanyaan" placeholder="Pengajuan Pertanyaan Hukum"
-													required="required">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group message">
-												<i class="fa fa-pencil"></i>
-												<textarea name="keterangan" rows="7"
-													placeholder="Keterangan lengkap terkait perkara hukum yang Anda hadapi"></textarea>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group button">
-												<button type="submit" class="btn primary"><i
-														class="fa fa-send"></i>Ajukan Konsultasi</button>
-											</div>
-										</div>
-									</div>
-								</form>
+								<h1 style="font-size: 18px;">-</h1>
+                                <h2>Detail Konsultasi</h2>
+        <% if (Object.keys(konsultasi).length > 0) { %>
+            <% const konsultasiData = Object.values(konsultasi)[0]; %>
+            <p>ID Konsultasi: <%= konsultasiData.id_konsultasi %></p>
+            <p>Tanggal: <%= konsultasiData.tanggal %></p>
+            <p>Status: <%= konsultasiData.status %></p>
+        <% } else { %>
+            <p>Data konsultasi tidak ditemukan.</p>
+        <% } %>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-4 col-12">
-					<div class="main-sidebar">
-						<div class="single-widget recent-post">
-							<h3 class="title">Konsultasi Berproses Anda</h3>
-							<% if (Array.isArray(konsultasiData) && konsultasiData.length > 0) { %>
-							  <% konsultasiData.forEach(konsultasi => { %>
-								<div class="single-post">
-								  <div class="image">
-									<img src="img/favicon.png" alt="#">
-								  </div>
-								  <div class="content">
-									<h5><a href="/detailkonsultasi/<%= konsultasi.id_konsultasi %>">Id: <%= konsultasi.id_konsultasi %></a></h5>
-									<ul class="comment">
-									  <li><i class="fa fa-calendar" aria-hidden="true"></i><%= konsultasi.tanggal %></li>
-									  <li><i class="fa fa-commenting-o" aria-hidden="true"></i><%= konsultasi.status %></li>
-									</ul>
-								  </div>
-								</div>
-							  <% }); %>
-							<% } else { %>
-							  <p>Tidak ada konsultasi yang berproses.</p>
-							<% } %>
-						  </div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</section>
 	<!--/ End Single News -->
-
-	<!-- Bergabung - Awal -->
-	<section id="bergabung" class="solusiadil-bergabung section">
-		<div class="container">
-			<div class="row ">
-				<div class="col-lg-6  col-12">
-					<div class="subscribe-text ">
-						<h6>Aturan dan Tips</h6>
-						<p class="">...</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Bergabung - Akhir -->
 
 	<!-- Footer - Awal -->
 	<footer id="akhir" class="footer " >
@@ -281,7 +209,6 @@
 	<!-- Footer - Akhir -->
 
 	<!-- Solusi Adil - JS Library -->
-	<script src="function/konsultasi.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.0.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
