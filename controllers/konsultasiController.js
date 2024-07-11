@@ -24,6 +24,7 @@ exports.konsultasiData = async (req, res) => {
       id_konsultasi,
       id_masyarakat,
       id_apph= "Masih kosong",
+      nama_apph= "Masih kosong",
       judul= "Masih kosong",
       pertanyaan,
       nama_mast,
@@ -31,6 +32,9 @@ exports.konsultasiData = async (req, res) => {
       keterangan,
       undangundang= "Masih kosong",
       status= "Menunggu",
+      lanjutan1= "Masih kosong",
+      wilayahhukum= "Masih kosong",
+      referensi= "Masih kosong",
       media= "Masih kosong",
     } = req.body;
 
@@ -44,12 +48,16 @@ exports.konsultasiData = async (req, res) => {
         id_masyarakat, 
         nama_mast, 
         id_apph, 
+        nama_apph, 
         judul, 
         pertanyaan, 
         jawaban, 
         keterangan, 
         undangundang, 
-        status, 
+        status,
+        lanjutan1,
+        wilayahhukum,
+        referensi,
         media,
       }
     );
