@@ -18,21 +18,6 @@ exports.getKonsultasi = async (req, res) => {
   }
 };
 
-
-exports.getDetailKonsultasi = async (req, res) => {
-  try {
-    const id_konsultasi = req.params.id;
-    const response = await axios.get(`https://solusiadil-api.vercel.app/konsultasi/idkonsultasi/${id_konsultasi}`);
-    const konsultasiData = response.data;
-    console.log('konsultasiData:', konsultasiData); 
-    res.render('detailkonsultasi', { konsultasi: konsultasiData });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Terjadi kesalahan dalam mengambil data konsultasi.');
-  }
-};
-
-
 exports.konsultasiData = async (req, res) => {
   try {
     const {
@@ -81,7 +66,7 @@ exports.konsultasiData = async (req, res) => {
             </script>
           </head>
           <body>
-            <p>Kembalikan...</p>
+            <p>Kembalikan..</p>
           </body>
         </html>
       `);
@@ -104,5 +89,20 @@ exports.konsultasiData = async (req, res) => {
         </body>
       </html>
     `);
+  }
+};
+
+exports.getDetailKonsultasi = async (req, res) => {
+  try {
+    const id_konsultasi = req.query.id;
+    const response = await axios.get(`https://solusiadil-api.vercel.app/konsultasi/idkonsultasi/${id_konsultasi}`);
+    const konsultasiData = response.data;
+    if (!konsultasiData) {
+      throw new Error('Data konsultasi tidak ditemukan');
+    }
+    res.render('detailkonsultasi', { konsultasi: konsultasiData });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Terjadi kesalahan dalam mengambil data konsultasi.');
   }
 };

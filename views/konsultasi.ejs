@@ -168,7 +168,14 @@
 									<img src="img/favicon.png" alt="#">
 								  </div>
 								  <div class="content">
-									<h5><a href="/detailkonsultasi/<%= konsultasi.id_konsultasi %>">Id: <%= konsultasi.id_konsultasi %></a></h5>
+									<form action="/konsultasidt" method="GET">
+										<input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
+											<h5 style=" font-size: 15px; ">
+											<button type="submit" style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+											  Id: <%= konsultasi.id_konsultasi %>
+											</button>
+										  </h5>
+									</form>
 									<ul class="comment">
 									  <li><i class="fa fa-calendar" aria-hidden="true"></i><%= konsultasi.tanggal %></li>
 									  <li><i class="fa fa-commenting-o" aria-hidden="true"></i><%= konsultasi.status %></li>

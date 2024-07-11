@@ -103,7 +103,15 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1 style="font-size: 18px;"><i style="font-size: 25px;" class="fa-solid fa-comments"></i>  Konsultasi</h1>
+								<h1 style="font-size: 18px;"><i style="font-size: 25px;" class="fa-solid fa-comments"></i> Detail Konsultasi</h1>
+								<% if (Object.keys(konsultasi).length > 0) { %>
+									<% const konsultasiData = Object.values(konsultasi)[0]; %>
+									<p>ID Konsultasi: <%= konsultasiData.id_konsultasi %></p>
+									<p>Tanggal: <%= konsultasiData.tanggal %></p>
+									<p>Status: <%= konsultasiData.status %></p>
+								<% } else { %>
+									<p>Data konsultasi tidak ditemukan.</p>
+								<% } %>
 							</div>
 						</div>
 					</div>
@@ -113,15 +121,7 @@
 						<div class="col-12">
 							<div class="comments-form">
 								<h1 style="font-size: 18px;">-</h1>
-                                <h2>Detail Konsultasi</h2>
-        <% if (Object.keys(konsultasi).length > 0) { %>
-            <% const konsultasiData = Object.values(konsultasi)[0]; %>
-            <p>ID Konsultasi: <%= konsultasiData.id_konsultasi %></p>
-            <p>Tanggal: <%= konsultasiData.tanggal %></p>
-            <p>Status: <%= konsultasiData.status %></p>
-        <% } else { %>
-            <p>Data konsultasi tidak ditemukan.</p>
-        <% } %>
+								
 							</div>
 						</div>
 					</div>
