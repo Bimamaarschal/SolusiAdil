@@ -54,7 +54,8 @@
 						<ul class="solusiadil-top-contact">
 							<li><i class="fa-brands fa-whatsapp"></i>+62 888 0188 9923</li>
 							<li><i class="fa fa-envelope"></i><a href="mailto:-">solusiadil.id@gmail.com</a></li>
-							<li><a href="/logout" style="font-size: 15px;"><i class="fa-solid fa-right-from-bracket"></i>Keluar</a></li>
+							<li><a href="/logout" style="font-size: 15px;"><i
+										class="fa-solid fa-right-from-bracket"></i>Keluar</a></li>
 						</ul>
 					</div>
 					<!-- Kontak - Akhir-->
@@ -78,7 +79,7 @@
 								<nav class="navigation">
 									<ul class="nav menu">
 										<li><a href="beranda">Dashboard</a></li>
-										<li  class="active"><a href="konsultasi">Konsultasi </a></li>
+										<li class="active"><a href="konsultasi">Konsultasi </a></li>
 										<li><a href="layanan">Layanan </a></li>
 										<li><a href="tentangkami">Tentang Kami</a></li>
 										<li><a href="blog">Blog </a></li>
@@ -102,7 +103,8 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1 style="font-size: 18px;"><i class="fa-solid fa-comments"></i> Layanan Konsultasi</h1>
+								<h1 style="font-size: 18px;"><i class="fa-solid fa-comments"></i> Layanan Konsultasi
+								</h1>
 							</div>
 						</div>
 					</div>
@@ -112,14 +114,19 @@
 						<div class="col-12">
 							<div class="comments-form">
 								<form class="form" action="/konsultasidata" method="POST">
-									<h2 style="display: inline;">Perkara Hukum - ID Konsultasi: <input type="text" name="id_konsultasi" id="id_konsultasi" placeholder="Mohon Tunggu ..." required="required" readonly></h2>
-								<!-- Contact Form -->
+									<h2 style="display: inline;">Perkara Hukum - ID Konsultasi: <input type="text"
+											name="id_konsultasi" id="id_konsultasi" placeholder="Mohon Tunggu ..."
+											required="required" readonly></h2>
+									<!-- Contact Form -->
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
 												<i class="fa fa-user"></i>
-												<input id="nama_mast" name="nama_mast" type="text" oninput="validateNama(this)" placeholder="Nama Anda" value="<%= nama %>" readonly >
-												<small id="error-message-nama" style="color:red; display:none;">Hanya Alfabet A-Z
+												<input id="nama_mast" name="nama_mast" type="text"
+													oninput="validateNama(this)" placeholder="Nama Anda"
+													value="<%= nama %>" readonly>
+												<small id="error-message-nama" style="color:red; display:none;">Hanya
+													Alfabet A-Z
 													dan tidak lebih dari 150 karakter</small>
 											</div>
 										</div>
@@ -127,14 +134,15 @@
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
 												<i class="fa fa-envelope"></i>
-												<input id="id_masyarakat" name="id_masyarakat" type="text" placeholder=" ID Masyarakat" value="<%= id_masyarakat %>" readonly >
+												<input id="id_masyarakat" name="id_masyarakat" type="text"
+													placeholder=" ID Masyarakat" value="<%= id_masyarakat %>" readonly>
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group">
 												<i class="fa-solid fa-scale-balanced"></i>
-												<input type="text" name="pertanyaan" placeholder="Pengajuan Pertanyaan Hukum"
-													required="required">
+												<input type="text" name="pertanyaan"
+													placeholder="Pengajuan Pertanyaan Hukum" required="required">
 											</div>
 										</div>
 										<div class="col-12">
@@ -161,32 +169,104 @@
 					<div class="main-sidebar">
 						<div class="single-widget recent-post">
 							<h3 class="title">Konsultasi Berproses Anda</h3>
-							<% if (Array.isArray(konsultasiData) && konsultasiData.length > 0) { %>
-							  <% konsultasiData.forEach(konsultasi => { %>
-								<div class="single-post">
-								  <div class="image">
-									<img src="img/favicon.png" alt="#">
-								  </div>
-								  <div class="content">
-									<form action="/konsultasidt" method="GET">
-										<input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
-											<h5 style=" font-size: 15px; ">
-											<button type="submit" style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
-											  Id: <%= konsultasi.id_konsultasi %>
-											</button>
-										  </h5>
-									</form>
-									<ul class="comment">
-									  <li><i class="fa fa-calendar" aria-hidden="true"></i><%= konsultasi.tanggal %></li>
-									  <li><i class="fa fa-commenting-o" aria-hidden="true"></i><%= konsultasi.status %></li>
-									</ul>
-								  </div>
-								</div>
-							  <% }); %>
-							<% } else { %>
-							  <p>Tidak ada konsultasi yang berproses.</p>
-							<% } %>
-						  </div>
+							<% let processedCount=0; let totalProcessed=0; if (Array.isArray(konsultasiData) &&
+								konsultasiData.length> 0) {
+								konsultasiData.forEach(konsultasi => {
+								if (processedCount < 3 && konsultasi.status==='Menunggu' ) { %>
+									<div class="single-post">
+										<div class="image">
+											<img src="img/favicon.png" alt="#">
+										</div>
+										<div class="content">
+											<form action="/konsultasidt" method="GET">
+												<input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
+												<h5 style="font-size: 15px;">
+													<button type="submit"
+														style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+														Id: <%= konsultasi.id_konsultasi %>
+													</button>
+												</h5>
+											</form>
+											<ul class="comment">
+												<li><i class="fa fa-calendar" aria-hidden="true"></i>
+													<%= konsultasi.tanggal %>
+												</li>
+												<li><i class="fa-solid fa-spinner" aria-hidden="true"></i>
+													<%= konsultasi.status %>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<% processedCount++; totalProcessed++; } else if (konsultasi.status==='Menunggu' ) {
+										totalProcessed++; } }); if (processedCount===0) { %>
+										<p>Tidak ada konsultasi yang sedang diproses.</p>
+										<% } else if (processedCount < totalProcessed) { %>
+											<div class="see-more">
+												<h2 style="font-size: 15px;"><a href="/semua-konsultasi"><br>
+														Selengkapnya</a></h2>
+											</div>
+											<% } } else { %>
+												<p>Tidak ada konsultasi yang berproses.</p>
+												<% } %>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-8 col-2">
+					<div class="row">
+						<div class="col-12">
+							<div class="comments-form">
+								<h1 style="font-size: 18px;"><i class="fa-solid  fa-scale-balanced"></i> Aturan dan Kebijakan
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-12">
+					<div class="main-sidebar">
+						<div class="single-widget recent-post">
+							<h3 class="title">Konsultasi Selesai Anda</h3>
+							<% let processedCounta=0; let totalProcesseda=0; if (Array.isArray(konsultasiData) &&
+								konsultasiData.length> 0) {
+								konsultasiData.forEach(konsultasi => {
+								if (processedCounta < 3 && konsultasi.status==='Selesai' ) { %>
+									<div class="single-post">
+										<div class="image">
+											<img src="img/favicon.png" alt="#">
+										</div>
+										<div class="content">
+											<form action="/konsultasidt" method="GET">
+												<input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
+												<h5 style="font-size: 15px;">
+													<button type="submit"
+														style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+														Id: <%= konsultasi.id_konsultasi %>
+													</button>
+												</h5>
+											</form>
+											<ul class="comment">
+												<li><i class="fa fa-calendar" aria-hidden="true"></i>
+													<%= konsultasi.tanggal %>
+												</li>
+												<li><i class="fa-solid fa-spinner" aria-hidden="true"></i>
+													<%= konsultasi.status %>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<% processedCounta++; totalProcesseda++; } else if (konsultasi.status==='Selesai' )
+										{ totalProcesseda++; } }); if (processedCounta===0) { %>
+										<p>Tidak ada konsultasi selesai.</p>
+										<% } else if (processedCounta < totalProcesseda) { %>
+											<div class="see-more">
+												<h2 style="font-size: 15px;"><a href="/semua-konsultasi"><br>
+														Selengkapnya</a></h2>
+											</div>
+											<% } } else { %>
+												<p>Tidak ada konsultasi selesai.</p>
+												<% } %>
+						</div>
 					</div>
 				</div>
 
@@ -201,7 +281,7 @@
 			<div class="row ">
 				<div class="col-lg-6  col-12">
 					<div class="subscribe-text ">
-						<h6>Aturan dan Tips</h6>
+						<h6>Ruang Tips</h6>
 						<p class="">...</p>
 					</div>
 				</div>
@@ -211,7 +291,7 @@
 	<!-- Bergabung - Akhir -->
 
 	<!-- Footer - Awal -->
-	<footer id="akhir" class="footer " >
+	<footer id="akhir" class="footer ">
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">

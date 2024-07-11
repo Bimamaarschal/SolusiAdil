@@ -91,16 +91,21 @@ exports.konsultasiData = async (req, res) => {
     `);
   }
 };
-
 exports.getDetailKonsultasi = async (req, res) => {
   try {
     const id_konsultasi = req.query.id;
     const response = await axios.get(`https://solusiadil-api.vercel.app/konsultasi/idkonsultasi/${id_konsultasi}`);
     const konsultasiData = response.data;
-    if (!konsultasiData) {
+
+    // Ubah format objek jika diperlukan
+    const formattedKonsultasi = Object.values(konsultasiData)[0]; // Ambil nilai dari objek
+
+    if (!formattedKonsultasi) {
       throw new Error('Data konsultasi tidak ditemukan');
     }
-    res.render('detailkonsultasi', { konsultasi: konsultasiData });
+
+    res.render('detailkonsultasi', { konsultasi: formattedKonsultasi });
+
   } catch (error) {
     console.error(error);
     res.status(500).send('Terjadi kesalahan dalam mengambil data konsultasi.');
