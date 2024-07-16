@@ -74,3 +74,25 @@ passwordSafeMessage.style.display = 'none';
 passwordMessage.style.display = 'block';
 }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const statusInput = document.getElementById("status");
+  const statusValue = statusInput.value.toLowerCase();
+
+  switch (statusValue) {
+      case "menunggu":
+          statusInput.classList.add("bg-warning");
+          break;
+      case "diproses":
+          statusInput.classList.add("bg-success");
+          break;
+      case "selesai":
+          statusInput.classList.add("bg-primary");
+          break;
+      case "gagal":
+          statusInput.classList.add("bg-danger");
+          break;
+      default:
+          break;
+  }
+});
