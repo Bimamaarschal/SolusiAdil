@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const berandaController = require("../controllers/berandaController");
 const konsultasiController = require("../controllers/konsultasiController");
+const blogController = require("../controllers/blogController");
 const cekBeranda = require("../middlewares/cekBeranda");
 const cekLoginMasuk = require("../middlewares/cekLoginMasuk");
 
@@ -13,9 +14,8 @@ router.get("/tentangkami", (req, res) => {
   res.render("tentangkami");
 });
 
-router.get("/blog", cekLoginMasuk, (req, res) => {
-  res.render("blog");
-});
+router.get("/blog", blogController.getBlog);
+router.get('/bacablog', blogController.blogbacaData);
 
 router.get("/layanan", cekLoginMasuk, (req, res) => {
   res.render("layanan");
