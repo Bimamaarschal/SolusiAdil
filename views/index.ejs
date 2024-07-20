@@ -1,28 +1,19 @@
-<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
-	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="Solusi Adil">
 	<meta name="description" content="">
 	<meta name='copyright' content='bimamaarschal'>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Judul -->
 	<title>Solusi Adil</title>
 	<link rel="icon" href="img/favicon.png">
-
-	<!-- Fonts -->
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css">
-
-	<!-- CSS Main Style-->
 	<link rel="stylesheet" href="css/solusiadil.css">
-
-	<!-- CSS Library -->
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/datepicker.css">
@@ -33,17 +24,6 @@
 </head>
 
 <body>
-
-	<!-- Akses Cepat - Awal -->
-	<ul class="solusiadil-aksescepat">
-		<a class="get-aksescepat" href="#"><i class="fa fa-commenting"></i></a>
-		<li class="judul-aksescepat">Layanan Cepat</li>
-		<li>Langsung terhubung dengan layanan kosultasi - SOLUSI ADIL</li>
-		<div class="button">
-			<a href="" target="_blank" class="btn">Konsultasi Hukum</a>
-		</div>
-	</ul>
-	<!-- Akses Cepat - Akhir -->
 
 	<!-- Header Area - Awal -->
 	<header class="header">
@@ -79,7 +59,7 @@
 				<div class="inner">
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-12">
-							<div class="logo" style="padding-bottom: 20px; width: auto; height: auto;">
+							<div class="logo" style="padding-bottom: 20px; width: 150px; height: auto;">
 								<a href="index"><img src="img/logo.png" alt="#"></a>
 							</div>
 							<div class="mobile-nav"></div>
@@ -237,7 +217,9 @@
 					<div class="solusiadil-single-fun">
 						<i class="fa-solid fa-scale-balanced"></i>
 						<div class="content">
-							<span class="counter">0</span>
+							<span class="counter">
+								<%= totalKonsultasi %>
+							</span>
 							<p>Pelayanan Perkara</p>
 						</div>
 					</div>
@@ -246,7 +228,9 @@
 					<div class="solusiadil-single-fun">
 						<i class="fa-solid fa-people-group"></i>
 						<div class="content">
-							<span class="counter">0</span>
+							<span class="counter">
+								<%= totalUsers %>
+							</span>
 							<p>Masyarakat Terbantu</p>
 						</div>
 					</div>
@@ -255,7 +239,9 @@
 					<div class="solusiadil-single-fun">
 						<i class="fa-solid fa-user-tie"></i>
 						<div class="content">
-							<span class="counter">0</span>
+							<span class="counter">
+								<%= totalApph %>
+							</span>
 							<p>Afiliasi Profesi Hukum</p>
 						</div>
 					</div>
@@ -265,7 +251,7 @@
 						<i class="fa-solid fa-award"></i>
 						<div class="content">
 							<span class="counter">0</span>
-							<p>Kerja Sama dan Penghargaan</p>
+							<p>Penghargaan</p>
 						</div>
 					</div>
 				</div>
