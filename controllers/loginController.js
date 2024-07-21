@@ -34,10 +34,10 @@ exports.loginUser = async (req, res) => {
           nik: userData.nik
         },
         JWT_SECRET,
-        { expiresIn: '1h' }
+        { expiresIn: '3h' }
       );
       res.cookie('token', token, { httpOnly: true });
-      res.redirect(`/beranda?bima-safety-key=${randomString}&${id_masyarakat}&${randomString}`);
+      res.redirect(`/beranda?${randomString}&${id_masyarakat}&${randomString}`);
     } else {
       res.send(`
         <html>

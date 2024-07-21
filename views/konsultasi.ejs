@@ -2,27 +2,20 @@
 <html class="no-js" lang="zxx">
 
 <head>
-	<!-- Meta -->
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="Solusi Adil">
 	<meta name="description" content="">
 	<meta name='copyright' content='bimamaarschal'>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Judul -->
 	<title>Solusi Adil</title>
 	<link rel="icon" href="img/favicon.png">
-
-	<!-- Fonts -->
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css">
-
-	<!-- CSS Main Style-->
 	<link rel="stylesheet" href="css/solusiadil.css">
-
-	<!-- CSS Library -->
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/datepicker.css">
@@ -69,8 +62,8 @@
 				<div class="inner">
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-12">
-							<div class="logo" style="padding-bottom: 20px; width: auto; height: auto;">
-								<a href="index"><img src="img/logo.png" alt="#"></a>
+							<div class="logo" style="padding-bottom: 20px; width: 150px; height: auto;">
+								<a href="index"><img src="img/logo.gif" alt="#"></a>
 							</div>
 							<div class="mobile-nav"></div>
 						</div>
@@ -114,10 +107,9 @@
 						<div class="col-12">
 							<div class="comments-form">
 								<form class="form" action="/konsultasidata" method="POST">
-									<h2 style="display: inline;">Kasus Hukum - ID Konsultasi: <input type="text"
+									<h2 style="display: inline;">Form Pertanyaan Kasus Hukum - ID Konsultasi: <input type="text"
 											name="id_konsultasi" id="id_konsultasi" placeholder="Mohon Tunggu ..."
 											required="required" readonly></h2>
-									<!-- Contact Form -->
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
@@ -130,7 +122,6 @@
 													dan tidak lebih dari 150 karakter</small>
 											</div>
 										</div>
-
 										<div class="col-lg-6 col-md-6 col-12">
 											<div class="form-group">
 												<i class="fa-regular fa-id-card"></i>
@@ -141,8 +132,8 @@
 										<div class="col-12">
 											<div class="form-group">
 												<i class="fa-solid fa-map-location-dot"></i>
-												<input type="text" name="wilayahhukum"
-													placeholder="Wilayah Hukum / Domisili Kasus Hukum" required="required">
+												<input type="text" name="wilayahhukum" placeholder="Wilayah Hukum"
+													required="required">
 											</div>
 										</div>
 										<div class="col-12">
@@ -155,82 +146,81 @@
 										<div class="col-12">
 											<div class="form-group message">
 												<i class="fa fa-pencil"></i>
-												<textarea name="keterangan" rows="7"
+												<textarea name="keterangan" rows="5"
 													placeholder="Keterangan lengkap terkait kasus hukum yang Anda hadapi"></textarea>
 											</div>
 										</div>
-										<div class="col-12">
-											<div class="form-group button">
-												<button type="submit" class="btn primary"><i
-														class="fa fa-send"></i>Ajukan Konsultasi</button>
-											</div>
-										</div>
 									</div>
-								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-
 				<div class="col-lg-4 col-12">
+					<div class="row">
+						<div class="col-12">
+							<div class="comments-form">
+								<h1 style="font-size: 15px;"><i class="fa-solid fa-scale-balanced"></i> Pengajuan Konsultasi</h1>
+								<div class="row">
+									<div class="col-6">
+										<div class="form-group button">
+											<button style="margin-top: 20px; margin-right: 0px; padding: 10px; padding-left: 0; font-size: 12px;" type="submit" class="btn primary"><i class="fa fa-send"></i> Ajukan Konsultasi</button>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="form-group button">
+											<button style="margin-top: 20px; margin-left: 0px; padding: 10px; padding-left: 0; font-size: 12px;" type="submit" class="btn primary"><i class="fa fa-send"></i> Data Konsultasi</button>
+										</div>
+									</div>
+								</div>
+							</form>
+							</div>
+						</div>
+					</div>
 					<div class="main-sidebar">
 						<div class="single-widget recent-post">
-							<h3 class="title">Konsultasi Berproses Anda</h3>
-							<% 
-let processedCount = 0; 
-let totalProcessed = 0; 
-if (Array.isArray(konsultasiData) && konsultasiData.length > 0) {
-    konsultasiData.forEach(konsultasi => {
-        if (processedCount < 3) {
-            let formAction = '';
-            if (konsultasi.status === 'Menunggu') {
-                formAction = '/konsultasidt';
-            } else if (konsultasi.status === 'Diproses') {
-                formAction = '/konsultasidiproses';
-            } else if (konsultasi.status === 'Selesai' || konsultasi.status === 'Gagal') {
-                formAction = '/konsultasiend';
-            }
-
-            if (formAction) { %>
-                <div class="single-post">
-                    <div class="image">
-                        <img src="img/favicon.png" alt="#">
-                    </div>
-                    <div class="content">
-                        <form action="<%= formAction %>" method="GET">
-                            <input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
-                            <h5 style="font-size: 15px;">
-                                <button type="submit" style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
-                                    Id: <%= konsultasi.id_konsultasi %>
-                                </button>
-                            </h5>
-                        </form>
-                        <ul class="comment">
-                            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= konsultasi.tanggal %></li>
-                            <li><i class="fa-solid fa-spinner" aria-hidden="true"></i> <%= konsultasi.status %></li>
-                        </ul>
-                    </div>
-                </div>
-                <% 
-                processedCount++; 
-                totalProcessed++; 
-            }
-        } else if (konsultasi.status === 'Menunggu') {
-            totalProcessed++;
-        }
-    }); 
-
-    if (processedCount === 0) { %>
-        <p>Tidak ada konsultasi yang sedang diproses.</p>
-    <% } else if (processedCount < totalProcessed) { %>
-        <div class="see-more">
-            <h2 style="font-size: 15px;"><a href="/semua-konsultasi"><br>Selengkapnya</a></h2>
-        </div>
-    <% } 
-} else { %>
-    <p>Tidak ada konsultasi yang berproses.</p>
-<% } %>
-
+							<h3 class="title" style="font-size: 15px;">Konsultasi Berproses Anda</h3>
+							<% let processedCount=0; let totalProcessed=0; if (Array.isArray(konsultasiData) &&
+								konsultasiData.length> 0) {
+								konsultasiData.forEach(konsultasi => {
+								if (processedCount < 3) { let formAction='' ; if (konsultasi.status==='Menunggu' ) {
+									formAction='/konsultasidt' ; } else if (konsultasi.status==='Diproses' ) {
+									formAction='/konsultasidiproses' ; } else if (konsultasi.status==='Selesai' ||
+									konsultasi.status==='Gagal' ) { formAction='/konsultasiend' ; } if (formAction) { %>
+									<div class="single-post">
+										<div class="image">
+											<img src="img/favicon.png" alt="#">
+										</div>
+										<div class="content">
+											<form action="<%= formAction %>" method="GET">
+												<input type="hidden" name="id" value="<%= konsultasi.id_konsultasi %>">
+												<h5 style="font-size: 15px;">
+													<button type="submit"
+														style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+														Id: <%= konsultasi.id_konsultasi %>
+													</button>
+												</h5>
+											</form>
+											<ul class="comment">
+												<li><i class="fa fa-calendar" aria-hidden="true"></i>
+													<%= konsultasi.tanggal %>
+												</li>
+												<li><i class="fa-solid fa-spinner" aria-hidden="true"></i>
+													<%= konsultasi.status %>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<% processedCount++; totalProcessed++; } } else if (konsultasi.status==='Menunggu' )
+										{ totalProcessed++; } }); if (processedCount===0) { %>
+										<p>Tidak ada konsultasi yang sedang diproses.</p>
+										<% } else if (processedCount < totalProcessed) { %>
+											<div class="see-more">
+												<h2 style="font-size: 15px;"><a
+														href="/semua-konsultasi"><br>Selengkapnya</a></h2>
+											</div>
+											<% } } else { %>
+												<p>Tidak ada konsultasi yang berproses.</p>
+												<% } %>
 						</div>
 					</div>
 				</div>
@@ -239,7 +229,8 @@ if (Array.isArray(konsultasiData) && konsultasiData.length > 0) {
 					<div class="row">
 						<div class="col-12">
 							<div class="comments-form">
-								<h1 style="font-size: 18px;"><i class="fa-solid  fa-scale-balanced"></i> Aturan dan Kebijakan
+								<h1 style="font-size: 18px;"><i class="fa-solid  fa-scale-balanced"></i> Aturan dan
+									Kebijakan
 								</h1>
 							</div>
 						</div>
