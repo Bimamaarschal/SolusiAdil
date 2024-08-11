@@ -11,20 +11,24 @@ exports.getKonsultasi = async (req, res) => {
       );
       const konsultasiObj = response.data;
       const konsultasiData = Object.values(konsultasiObj);
-      res.render("konsultasi", {
+      res.render("konsultasi/konsultasi", {
         nama: nama,
         id_masyarakat: id_masyarakat,
         nik: nik,
         konsultasiData: konsultasiData,
       });
     } catch (error) {
-      res.status(500).send("Error fetching data from API");
+      res.render("konsultasi/konsultasi", {
+        nama: nama,
+        id_masyarakat: id_masyarakat,
+        nik: nik,
+        konsultasiData: [],
+      });
     }
   } else {
     res.redirect("/masuk");
   }
 };
-
 exports.konsultasiData = async (req, res) => {
   try {
     const {
@@ -117,7 +121,9 @@ exports.getDetailKonsultasi = async (req, res) => {
     if (!formattedKonsultasi) {
       throw new Error("Data konsultasi tidak ditemukan");
     }
-    res.render("detailkonsultasi", { konsultasi: formattedKonsultasi });
+    res.render("konsultasi/detailkonsultasi", {
+      konsultasi: formattedKonsultasi,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send("Terjadi kesalahan dalam mengambil data konsultasi.");
@@ -137,7 +143,9 @@ exports.getDiprosesKonsultasi = async (req, res) => {
       throw new Error("Data konsultasi tidak ditemukan");
     }
 
-    res.render("proseskonsultasi", { konsultasi: formattedKonsultasi });
+    res.render("konsultasi/proseskonsultasi", {
+      konsultasi: formattedKonsultasi,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send("Terjadi kesalahan dalam mengambil data konsultasi.");
@@ -188,7 +196,7 @@ exports.getEndKonsultasi = async (req, res) => {
     if (!formattedKonsultasi) {
       throw new Error("Data konsultasi tidak ditemukan");
     }
-    res.render("endkonsultasi", { konsultasi: formattedKonsultasi });
+    res.render("konsultasi/endkonsultasi", { konsultasi: formattedKonsultasi });
   } catch (error) {
     console.error(error);
     res.status(500).send("Terjadi kesalahan dalam mengambil data konsultasi.");

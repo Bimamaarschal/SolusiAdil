@@ -6,7 +6,7 @@ exports.getBlog = async (req, res) => {
     const response = await axios.get('https://solusiadil-api.vercel.app/blogs');
     const blogData = Object.values(response.data);
 
-    res.render('blog', { blogData });
+    res.render('blog/blog', { blogData });
   } catch (error) {
     console.error('Error fetching blog data:', error);
     res.status(500).send('Error fetching blog data');
@@ -24,7 +24,7 @@ exports.blogbacaData = async (req, res) => {
     if (!formattedBlog) {
       throw new Error('Data blog tidak ditemukan');
     }
-    res.render('bacablog', { blog: formattedBlog, blogData2 });
+    res.render('blog/blog', { blog: formattedBlog, blogData2 });
   } catch (error) {
     console.error(error);
     res.status(500).send('Terjadi kesalahan dalam mengambil data blog.');
