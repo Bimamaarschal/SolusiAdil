@@ -14,9 +14,6 @@ router.get("/tentangkami", (req, res) => {
   res.render("tentangkami");
 });
 
-router.get("/blog", blogController.getBlog);
-router.get('/bacablog', blogController.blogbacaData);
-
 router.get("/layanan", cekLoginMasuk, (req, res) => {
   res.render("layanan");
 });
@@ -35,10 +32,6 @@ router.get("/gabung", cekLoginMasuk, (req, res) => {
 
 router.get("/jdih", cekLoginMasuk, (req, res) => {
   res.render("jdih");
-});
-
-router.get("/panduan", cekLoginMasuk, (req, res) => {
-  res.render("panduan");
 });
 
 module.exports = router;

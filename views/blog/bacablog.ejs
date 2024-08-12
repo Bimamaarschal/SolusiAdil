@@ -1,90 +1,114 @@
 <!doctype html>
-<html class="no-js" lang="bimamaarschal">
+<html class="no-js" lang="zxx">
 
 <%- include('../partials/head') %>
 
-<body>
+	<body>
 
-	<%- include('../partials/header2', { activePage: 'blog' }) %>
-
-	<section class="news-single section" style="padding-top: 5px;">
-		<div class="container">
-			<div class="row">
-					<div class="col-lg-8 col-12">
-						<div class="row">
-							<div class="col-12">
-								<div class="single-main">
-									<h1 class="news-title"><a href="news-single.html"><%= blog.judul %></a></h1>
-									<div class="meta">
-										<div class="meta-left">
-											<span class="author"><a href="#"><img src="img/favicon.png" alt="#"><%= blog.nama_apph%></a></span>
-											<span class="date"><i class="fa fa-clock-o"></i><%= blog.tanggal %></span>
+		<%- include('../partials/header2', { activePage: 'blog' }) %>
+			<section class="news-single section" style="padding-top: 5px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-12">
+							<div class="row">
+								<div class="col-12">
+									<div class="single-main">
+										<div class="news-head">
+											<img id="randomImage" src="blog/1.png" alt="#">
 										</div>
-										<div class="meta-right">
-											<span class="views"><i class="fa fa-eye"></i>x Melihat</span>
+										<h1 class="news-title"><a href="news-single.html">
+												<%= blog.judul %>
+											</a></h1>
+										<div class="meta">
+											<div class="meta-left">
+												<span class="author"><a href="#"><img src="blog/0.png" alt="#">
+														<%= blog.nama_apph%>
+													</a></span>
+												<span class="date"><i class="fa fa-clock-o"></i>
+													<%= blog.tanggal %>
+												</span>
+											</div>
+											<div class="meta-right">
+												<span class="views"><i class="fa fa-scale-balanced"></i></span>
+											</div>
 										</div>
-									</div>
-									<div class="news-text">
-										<blockquote class="overlay">
-											<p>
-												Dasar Hukum : <%= blog.undang_undang %>
-											</p>					
-										</blockquote>
-										<p>
-
-											<%= blog.isi %>
-										</p>
-										<blockquote class="overlay">
-											<p>
-												Referensi : <%= blog.doc_pendukung %>
-
-											</p>					
-										</blockquote>
-									</div>
-									<div class="blog-bottom">
-										<ul class="prev-next">
-											<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-											<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-										</ul>
+										<div class="news-text">
+											<blockquote class="overlay">
+												<p>
+													Dasar Hukum : <%= blog.undang_undang %>
+												</p>
+											</blockquote>
+											<p id="formatted-dsa"> </p>
+											<blockquote class="overlay">
+												<p>
+													Referensi : <%= blog.doc_pendukung %>
+												</p>
+											</blockquote>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-4 col-12">
-						<div class="main-sidebar">
-							<div class="single-widget recent-post">
-								<h3 class="title">Blog Hukum Lainnya</h3>
+						<div class="col-lg-4 col-12">
+							<div class="main-sidebar">
+								<div class="single-widget recent-post">
+									<h3 class="title">Blog Hukum Lainnya</h3>
+									<% const lastThreeBlogs=blogData2.slice(-3); %>
+										<% lastThreeBlogs.forEach(blogss=> { %>
+											<div class="single-post">
+												<div class="image">
+													<img src="img/favicon.png" alt="#">
+												</div>
+												<div class="content">
+													<h5><a href="bacablog?id_blog=<%= blog.id_blog %>">
+															<%= blogss.judul %>
+														</a></h5>
+													<ul class="comment">
+														<li><i class="fa fa-calendar" aria-hidden="true"></i>
+															<%= blogss.tanggal%>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<% }); %>
+								</div>
 
-								<% 
-									const lastThreeBlogs = blogData2.slice(-3);
-									%>
-
-									<% lastThreeBlogs.forEach(blogss => { %>
-									<div class="single-post">
-										<div class="image">
-										<img src="img/favicon.png" alt="#">
-										</div>
-										<div class="content">
-										<h5><a href="#"><%= blogss.judul %></a></h5>
-										<ul class="comment">
-											<li><i class="fa fa-calendar" aria-hidden="true"></i><%= blogss.tanggal%></li>
-										</ul>
-										</div>
-									</div>
-									<% }); %>
 							</div>
-					
 						</div>
+
 					</div>
+				</div>
+			</section>
+			<%- include('../partials/footer') %>
 
-			</div>
-		</div>
-	</section>
+				<%- include('../partials/js') %>
+					<script>
+						function getRandomInt(min, max) {
+							min = Math.ceil(min);
+							max = Math.floor(max);
+							return Math.floor(Math.random() * (max - min + 1)) + min;
+						}
 
-	<%- include('partials/footer') %>
-	<%- include('partials/js') %>
-
-</body>
+						window.onload = function () {
+							var randomNumber = getRandomInt(1, 10);
+							var imgElement = document.getElementById("randomImage");
+							imgElement.src = "blog/" + randomNumber + ".png";
+						}
+					</script>
+					<script>
+						function convertHtmlToTextWithFormatting(html) {
+							const parser = new DOMParser();
+							const doc = parser.parseFromString(html, 'text/html');
+							return doc.body.innerHTML;
+						}
+						const htmlContent = `<%- blog.isi %>`;
+						const formattedTextElement = document.getElementById('formatted-dsa');
+						formattedTextElement.innerHTML = convertHtmlToTextWithFormatting(htmlContent);
+						formattedTextElement.style.setProperty('color', 'black', 'important');
+					
+						console.log(window.getComputedStyle(formattedTextElement).color);
+					</script>
+					
+	</body>
 
 </html>
