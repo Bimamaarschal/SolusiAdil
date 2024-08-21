@@ -40,6 +40,7 @@
 													<div class="form-group position-relative">
 														<small>ID Konsultasi</small>
 														<div class="input-icon">
+															<i style="padding-top: 25px;"  class="fa-solid fa-folder-closed"></i>
 															<input name="id_konsultasi" type="text"
 																value="<%= konsultasi.id_konsultasi %>" readonly>
 														</div>
@@ -49,6 +50,7 @@
 													<div class="form-group position-relative">
 														<small>Tanggal Pengajuan Konsultasi</small>
 														<div class="input-icon">
+															<i style="padding-top: 25px;" class="fa-solid fa-calendar-days"></i>
 															<input id="tanggal" name="tanggal" type="text"
 																value="<%= konsultasi.tanggal %>" readonly>
 														</div>
@@ -60,7 +62,8 @@
 													<div class="form-group position-relative">
 														<small>Status Penanganan</small>
 														<div class="input-icon">
-															<input id="status" name="status" type="text"
+															<i  style="padding-top: 25px; color: aliceblue;"  class="fa-solid fa-spinner"></i>
+															<input style="color: aliceblue;"  id="status" name="status" type="text"
 																value="<%= konsultasi.status %>" readonly>
 														</div>
 													</div>
@@ -69,6 +72,7 @@
 													<div class="form-group position-relative">
 														<small>Wilayah Hukum</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-map-location-dot"></i>
 															<input id="wilayahhukum" name="wilayahhukum" type="text"
 																value="<%= konsultasi.wilayahhukum %>" readonly>
 														</div>
@@ -81,6 +85,7 @@
 														<small>ID Pengguna - Solusi Adil Users - Mengajukan
 															Pertanyaan</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-regular fa-id-card"></i>
 															<input id="id_masyarakat" name="id_masyarakat" type="text"
 																value="<%= konsultasi.id_masyarakat %>" readonly>
 														</div>
@@ -90,6 +95,7 @@
 													<div class="form-group position-relative">
 														<small>Nama Penanya</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-user-tie"></i>
 															<input id="nama_mast" name="nama_mast" type="text"
 																value="<%= konsultasi.nama_mast %>" readonly>
 														</div>
@@ -116,6 +122,7 @@
 													<div class="form-group position-relative">
 														<small>ID APPH - Solusi Adil Team - Penjawab Pertanyaan</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-regular fa-id-card"></i>
 															<input id="id_apph" name="id_apph" type="text"
 																value="<%= konsultasi.id_apph %>" readonly>
 														</div>
@@ -125,6 +132,7 @@
 													<div class="form-group position-relative">
 														<small>Nama APPH</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-user-tie"></i>
 															<input id="nama_apph" name="nama_apph" type="text"
 																value="<%= konsultasi.nama_apph %>" readonly>
 														</div>
@@ -153,6 +161,7 @@
 													<div class="form-group position-relative">
 														<small>Pertanyaan</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-regular fa-copy"></i>
 															<input id="pertanyaan" name="pertanyaan" type="text"
 																value="<%= konsultasi.pertanyaan %>" readonly>
 														</div>
@@ -162,6 +171,7 @@
 													<div class="form-group message">
 														<small>Keterangan Lanjutan</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-copy"></i>
 															<textarea style="height: 120px;" name="keterangan" rows="2"
 																readonly> <%= konsultasi.keterangan %> </textarea>
 														</div>
@@ -184,6 +194,7 @@
 													<div class="form-group">
 														<small>Judul Konsultasi Anda</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-pen-nib"></i>
 															<input id="judul" name="judul" type="text"
 																value="<%= konsultasi.judul%>"
 																oninput="validateJudul(this)" required readonly>
@@ -199,6 +210,7 @@
 														<small>Dasar Hukum Jawaban
 															Ini</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-book"></i>
 															<input id="undangundang" name="undangundang"
 																value="<%= konsultasi.undangundang%>" type="text"
 																oninput="validateUU(this)" required readonly>
@@ -212,6 +224,7 @@
 													<div class="form-group">
 														<small>Referensi Studi</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-book-bookmark"></i>
 															<input id="referensi" name="referensi" type="text"
 																oninput="validateReferensi(this)"
 																value="<%= konsultasi.referensi%>" required readonly>
@@ -225,6 +238,7 @@
 													<div class="form-group message">
 														<small>Jawaban Penanganan dan Solusi</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-gavel"></i>
 															<textarea style="height: 220px;" name="jawaban" rows="5"
 																readonly
 																placeholder="Tolong, pastikan kebenaran dan keakuratan jawaban berdasarkan peraturan perundang-udangan yang berlaku dan relevan"> <%= konsultasi.jawaban %> </textarea>
@@ -251,6 +265,7 @@
 													<div class="form-group message">
 														<small>APPH telah Memilih Urgensi Pertemuan</small>
 														<div class="input-icon">
+															<i  style="padding-top: 25px;"  class="fa-solid fa-comments"></i>
 															<% if (konsultasi.calendly === 'bimamaarschal/konsultasi-hukum-1' || konsultasi.calendly === 'aospace-id/konsultasi-hukum-2') { %>
 																<div class="col-lg-0 col-md-0 col-12">
 																	<div class="form-group text-lg-left text-md-left text-center">
@@ -286,9 +301,8 @@
 														<small>Silahkan Isi Tanggapan Lanjutan Anda Berdasarkan
 															Jawaban</small>
 														<div class="input-icon">
-															<textarea style="height: 120px;" id="lanjutan1"
-																name="lanjutan1" rows="3"
-																placeholder="Isi secara detail dan tidak keluar dari topik dan jawaban hukum yang telah di berikan">   <%= konsultasi.lanjutan1 %> </textarea>
+															<i  style="padding-top: 25px;"  class="fa-solid fa-pen-nib"></i>
+															<textarea style="height: 120px;" id="lanjutan1" name="lanjutan1" rows="3" placeholder="Isi secara detail dan tidak keluar dari topik dan jawaban hukum yang telah di berikan"><% const lanjutan1Value = (konsultasi.lanjutan1 || '').trim(); if (lanjutan1Value && lanjutan1Value !== 'Belum Tersedia' && lanjutan1Value !== 'Masih Kosong') { %><%= lanjutan1Value %><% } %></textarea>
 														</div>
 													</div>
 												</div>
