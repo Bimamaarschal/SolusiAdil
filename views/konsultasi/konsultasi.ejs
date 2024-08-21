@@ -26,9 +26,11 @@
 								<div class="col-12">
 									<div class="comments-form">
 										<form class="form" action="/konsultasidata" method="POST">
+
 											<h2 style="display: inline;">Form Pertanyaan Kasus Hukum - ID Konsultasi:
 												<input type="text" name="id_konsultasi" id="id_konsultasi"
-													placeholder="Mohon Tunggu ..." required="required" readonly></h2>
+													placeholder="Mohon Tunggu ..." required="required" readonly>
+											</h2>
 											<div class="row">
 												<div class="col-lg-6 col-md-6 col-12">
 													<div class="form-group">
@@ -52,12 +54,14 @@
 												</div>
 												<div class="col-12">
 													<div class="form-group">
+														<i class="fa-solid fa-map-location-dot"></i>
 														<input type="text" name="wilayahhukum"
 															placeholder="Wilayah Hukum" required="required">
 													</div>
 												</div>
 												<div class="col-12">
 													<div class="form-group">
+														<i class="fa-regular fa-copy"></i>
 														<input type="text" name="pertanyaan"
 															placeholder="Pengajuan Pertanyaan Hukum"
 															required="required">
@@ -65,6 +69,7 @@
 												</div>
 												<div class="col-12">
 													<div class="form-group message">
+														<i class="fa-solid fa-copy"></i>
 														<textarea name="keterangan" rows="5"
 															placeholder="Keterangan lengkap terkait kasus hukum yang Anda hadapi"></textarea>
 													</div>
@@ -104,7 +109,7 @@
 							</div>
 							<div class="main-sidebar">
 								<div class="single-widget recent-post">
-									<h3 class="title" style="font-size: 15px;">Konsultasi Berproses Anda</h3>
+									<h3 class="title" style="font-size: 15px;">Riwayat Konsultasi Anda</h3>
 									<% let processedCount=0; let totalProcessed=0; if (Array.isArray(konsultasiData) &&
 										konsultasiData.length> 0) {
 										konsultasiData.forEach(konsultasi => {
@@ -159,12 +164,99 @@
 								<div class="col-12">
 									<div class="comments-form">
 										<h1 style="font-size: 18px;">Aturan dan Kebijakan</h1>
-										<p style="margin-top: 10px; color: black;" >Berikut adalah aturan dan kebijakan yang berlaku:</p>
+										<p style="margin-top: 10px; color: black;">Berikut adalah aturan dan kebijakan
+											yang berlaku:</p>
 										<ul style="font-size: 12px; color: black;">
-											<li><i class="fa-solid fa-arrow-right"></i> Semua pengguna wajib mematuhi syarat dan ketentuan yang berlaku.</li>
-											<li><i class="fa-solid fa-arrow-right"></i> Data pribadi pengguna akan dijaga kerahasiaannya sesuai dengan kebijakan privasi.</li>
-											<li><i class="fa-solid fa-arrow-right"></i> Konten yang diunggah harus sesuai dengan pedoman komunitas.</li>
-											<li><i class="fa-solid fa-arrow-right"></i> Pelanggaran terhadap aturan ini dapat mengakibatkan sanksi sesuai dengan ketentuan hukum.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Semua pengguna wajib mematuhi
+												syarat dan ketentuan yang berlaku.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Data pribadi pengguna akan
+												dijaga kerahasiaannya sesuai dengan kebijakan privasi.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Konten yang diunggah harus
+												sesuai dengan pedoman komunitas.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Pelanggaran terhadap aturan ini
+												dapat mengakibatkan sanksi sesuai dengan ketentuan hukum.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-12">
+							<div class="main-sidebar">
+								<div class="single-widget recent-post">
+									<h3 class="title">Konsultasi Diproses Anda</h3>
+									<% let displayedCount=0; let totalCount=0; %>
+
+										<% if (Array.isArray(konsultasiData) && konsultasiData.length> 0) { %>
+											<% konsultasiData.forEach(konsultasi=> { %>
+												<% if (displayedCount < 3 && konsultasi.status==='Diproses' ) { %>
+													<div class="single-post">
+														<div class="image">
+															<img src="img/favicon.png" alt="#">
+														</div>
+														<div class="content">
+															<form action="/konsultasidiproses" method="GET">
+																<input type="hidden" name="id"
+																	value="<%= konsultasi.id_konsultasi %>">
+																<h5 style="font-size: 15px;">
+																	<button type="submit"
+																		style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+																		Id: <%= konsultasi.id_konsultasi %>
+																	</button>
+																</h5>
+															</form>
+															<ul class="comment">
+																<li><i class="fa fa-calendar" aria-hidden="true"></i>
+																	<%= konsultasi.tanggal %>
+																</li>
+																<li><i class="fa-solid fa-spinner"
+																		aria-hidden="true"></i>
+																	<%= konsultasi.status %>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<% displayedCount++; totalCount++; %>
+														<% } else if (konsultasi.status==='Diproses' ) { %>
+															<% totalCount++; %>
+																<% } %>
+																	<% }); %>
+
+																		<% if (displayedCount===0) { %>
+																			<p>Tidak ada konsultasi diproses.</p>
+																			<% } else if (displayedCount < totalCount) {
+																				%>
+																				<div class="see-more">
+																					<h2 style="font-size: 15px;"><a
+																							href="/semua-konsultasi"><br>Selengkapnya</a>
+																					</h2>
+																				</div>
+																				<% } %>
+																					<% } else { %>
+																						<p>Tidak ada konsultasi
+																							diproses.</p>
+																						<% } %>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-8 col-2">
+							<div class="row">
+								<div class="col-12">
+									<div class="comments-form">
+										<h1 style="font-size: 18px;">Tips untuk Konsultasi Hukum yang Baik</h1>
+										<p style="margin-top: 10px; color: black;">Berikut adalah beberapa tips untuk
+											memastikan konsultasi hukum Anda berjalan dengan efektif:</p>
+										<ul style="font-size: 12px; color: black;">
+											<li><i class="fa-solid fa-arrow-right"></i> Persiapkan semua dokumen dan
+												informasi yang relevan sebelum konsultasi.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Jelaskan masalah Anda secara
+												jelas dan lengkap untuk mendapatkan nasihat yang tepat.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Ajukan pertanyaan jika ada hal
+												yang tidak Anda pahami selama konsultasi.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Pastikan untuk mencatat semua
+												saran dan rekomendasi yang diberikan oleh penasihat hukum.</li>
+											<li><i class="fa-solid fa-arrow-right"></i> Diskusikan detail biaya dan
+												pengaturan pembayaran jika di tentukan oleh perundang-udangan. Solusi
+												Adil tidak di pungut Biaya GRATIS</li>
 										</ul>
 									</div>
 								</div>
@@ -175,47 +267,60 @@
 							<div class="main-sidebar">
 								<div class="single-widget recent-post">
 									<h3 class="title">Konsultasi Selesai Anda</h3>
-									<% let processedCounta=0; let totalProcesseda=0; if (Array.isArray(konsultasiData)
-										&& konsultasiData.length> 0) {
-										konsultasiData.forEach(konsultasi => {
-										if (processedCounta < 3 && konsultasi.status==='Selesai' ) { %>
-											<div class="single-post">
-												<div class="image">
-													<img src="img/favicon.png" alt="#">
-												</div>
-												<div class="content">
-													<form action="/konsultasidt" method="GET">
-														<input type="hidden" name="id"
-															value="<%= konsultasi.id_konsultasi %>">
-														<h5 style="font-size: 15px;">
-															<button type="submit"
-																style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
-																Id: <%= konsultasi.id_konsultasi %>
-															</button>
-														</h5>
-													</form>
-													<ul class="comment">
-														<li><i class="fa fa-calendar" aria-hidden="true"></i>
-															<%= konsultasi.tanggal %>
-														</li>
-														<li><i class="fa-solid fa-spinner" aria-hidden="true"></i>
-															<%= konsultasi.status %>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<% processedCounta++; totalProcesseda++; } else if
-												(konsultasi.status==='Selesai' ) { totalProcesseda++; } }); if
-												(processedCounta===0) { %>
-												<p>Tidak ada konsultasi selesai.</p>
-												<% } else if (processedCounta < totalProcesseda) { %>
-													<div class="see-more">
-														<h2 style="font-size: 15px;"><a href="/semua-konsultasi"><br>
-																Selengkapnya</a></h2>
+									<% let processedCounta=0; let totalProcesseda=0; %>
+
+										<% if (Array.isArray(konsultasiData) && konsultasiData.length> 0) { %>
+											<% konsultasiData.forEach(konsultasi=> { %>
+												<% if (processedCounta < 3 && (konsultasi.status==='Selesai' ||
+													konsultasi.status==='Gagal' )) { %>
+													<div class="single-post">
+														<div class="image">
+															<img src="img/favicon.png" alt="#">
+														</div>
+														<div class="content">
+															<form action="/konsultasiend" method="GET">
+																<input type="hidden" name="id"
+																	value="<%= konsultasi.id_konsultasi %>">
+																<h5 style="font-size: 15px;">
+																	<button type="submit"
+																		style="background:none; border:none; padding:0; font:inherit; cursor:pointer;">
+																		Id: <%= konsultasi.id_konsultasi %>
+																	</button>
+																</h5>
+															</form>
+															<ul class="comment">
+																<li><i class="fa fa-calendar" aria-hidden="true"></i>
+																	<%= konsultasi.tanggal %>
+																</li>
+																<li><i class="fa-solid fa-spinner"
+																		aria-hidden="true"></i>
+																	<%= konsultasi.status %>
+																</li>
+															</ul>
+														</div>
 													</div>
-													<% } } else { %>
-														<p>Tidak ada konsultasi selesai.</p>
-														<% } %>
+													<% processedCounta++; totalProcesseda++; %>
+														<% } else if (konsultasi.status==='Selesai' ||
+															konsultasi.status==='Gagal' ) { %>
+															<% totalProcesseda++; %>
+																<% } %>
+																	<% }); %>
+
+																		<% if (processedCounta===0) { %>
+																			<p>Tidak ada konsultasi selesai atau gagal.
+																			</p>
+																			<% } else if (processedCounta <
+																				totalProcesseda) { %>
+																				<div class="see-more">
+																					<h2 style="font-size: 15px;"><a
+																							href="/semua-konsultasi"><br>Selengkapnya</a>
+																					</h2>
+																				</div>
+																				<% } %>
+																					<% } else { %>
+																						<p>Tidak ada konsultasi selesai
+																							atau gagal.</p>
+																						<% } %>
 								</div>
 							</div>
 						</div>
@@ -237,7 +342,8 @@
 				</div>
 			</section>
 			<%- include('../partials/footer') %>
-			<%- include('../partials/js') %>
-			<script src="function/konsultasi.js"></script>
+				<%- include('../partials/js') %>
+					<script src="function/konsultasi.js"></script>
 	</body>
+
 </html>

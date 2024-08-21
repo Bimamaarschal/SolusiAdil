@@ -167,7 +167,7 @@ exports.updateKonsultasi = async (req, res) => {
       lanjutan1: req.body.lanjutan1,
       media: "Belum Tersedia",
       nama_apph: req.body.nama_apph,
-      calendly: calendly,
+      calendly: "Terjadwal",
       nama_mast: req.body.nama_mast,
       pertanyaan: req.body.pertanyaan,
       referensi: req.body.referensi,
