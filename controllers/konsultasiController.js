@@ -205,3 +205,22 @@ exports.getEndKonsultasi = async (req, res) => {
     res.status(500).send("Terjadi kesalahan dalam mengambil data konsultasi.");
   }
 };
+
+exports.cetakKonsultasi = async (req, res) => {
+  try {
+    const id_konsultasi = req.query.id;
+    const response = await axios.get(
+      `https://solusiadil-api.vercel.app/konsultasi/idkonsultasi/${id_konsultasi}`
+    );
+    const konsultasiData = response.data;
+    const formattedKonsultasi = Object.values(konsultasiData)[0];
+    if (!formattedKonsultasi) {
+      throw new Error("Data konsultasi tidak ditemukan");
+    }
+    res.render("konsultasi/cetakkonsultasi", { konsultasi: formattedKonsultasi });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Terjadi kesalahan dalam mengambil data konsultasi.");
+  }
+};
+

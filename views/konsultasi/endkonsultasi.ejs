@@ -15,13 +15,18 @@
 							<div class="row">
 								<div class="col-12">
 									<div class="comments-form">
-										<h1 style="font-size: 18px;"><i  style="font-size: 25px;"
-												class="fa-solid fa-comments"></i> Konsultasi - ID <%=
-												konsultasi.id_konsultasi %>
-										</h1>
+										<div style="display: flex; align-items: center; justify-content: space-between;">
+											<h2 style="margin: 0;">
+												<i style="font-size: 18px;" class="fa-solid fa-comments"></i>
+												Konsultasi - ID <%=konsultasi.id_konsultasi %>
+											</h2>
+											<a href="/konsultasicetak?id=<%= konsultasi.id_konsultasi %>"  style="text-decoration: none;">
+											<i style="font-size: 20px; margin-left: 10px;" class="fa-solid fa-print"></i></a>
+										</div>
 									</div>
 								</div>
-							</div>
+							</div>							
+							
 						</div>
 						<form action="/updateKonsultasi" method="POST">
 							<div class="col-lg-12 col-12">
