@@ -2,7 +2,7 @@
 <html class="no-js" lang="bimamaarschal">
 
 <%- include('partials/head') %>
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LerQy4qAAAAAPHtQZrXfHR6ELXzY8_NubFZBCBX"></script>
+
 	<body>
 		<%- include('partials/header3') %>
 
@@ -23,7 +23,7 @@
 						<div class="col-lg-12 col-md-6 col-6">
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-12">
-									<form class="form" action="/login" method="POST" id="login-form">
+									<form class="form" action="/login" method="POST">
 										<div class="row">
 										  <div class="col-lg-12 col-md-6 col-12">
 											<div class="form-group">
@@ -38,6 +38,10 @@
 											  <input id="password" name="password" type="password">
 											</div>
 										  </div>
+										  <div class="col-lg-12 col-md-6 col-12">
+											<!-- Tambahkan reCAPTCHA di sini -->
+											<div class="g-recaptcha" data-sitekey="6LerQy4qAAAAAPHtQZrXfHR6ELXzY8_NubFZBCBX"></div>
+										  </div>
 										</div>
 										<div class="row">
 										  <div class="col-lg-7 col-md-8 col-12">
@@ -48,10 +52,7 @@
 										  <div class="col-lg-5 col-md-4 col-12">
 											<div class="form-group text-lg-right text-md-right text-center">
 											  <div class="get-quote">
-												<button type="submit" class="g-recaptcha btn"
-												  data-sitekey="6LerQy4qAAAAAPHtQZrXfHR6ELXzY8_NubFZBCBX"
-												  data-callback="onSubmit"
-												  data-action="submit">Masuk</button>
+												<button type="submit" class="btn" value="Login">Masuk</button>
 											  </div>
 											</div>
 										  </div>
@@ -65,11 +66,7 @@
 
 			<%- include('partials/footer') %>
 			<%- include('partials/js') %>
-			<script>
-				function onSubmit(token) {
-				  document.getElementById("login-form").submit();
-				}
-			  </script>
+			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 			<script src="function/masuk.js"></script>
 
 	</body>

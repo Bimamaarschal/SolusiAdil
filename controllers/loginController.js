@@ -18,13 +18,13 @@ const randomString = generateRandomString(randomStringLength);
 
 exports.loginUser = async (req, res) => {
   try {
-    const { id_masyarakat, password, 'g-recaptcha-response': captchaToken } = req.body;
+    const { id_masyarakat, password, 'g-recaptcha-response': captchaResponse } = req.body;
 
-    // Verifikasi token reCAPTCHA
+    // Verifikasi CAPTCHA
     const verifyCaptcha = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
       params: {
-        secret: 'YOUR_SECRET_KEY',
-        response: captchaToken
+        secret: '6LerQy4qAAAAAPHtQZrXfHR6ELXzY8_NubFZBCBX',
+        response: captchaResponse
       }
     });
 
