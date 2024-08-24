@@ -18,34 +18,7 @@ const randomString = generateRandomString(randomStringLength);
 
 exports.loginUser = async (req, res) => {
   try {
-    const { id_masyarakat, password, 'g-recaptcha-response': captchaResponse } = req.body;
-
-    // Verifikasi CAPTCHA
-    const verifyCaptcha = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
-      params: {
-        secret: '6LerQy4qAAAAAPHtQZrXfHR6ELXzY8_NubFZBCBX',
-        response: captchaResponse
-      }
-    });
-
-    if (verifyCaptcha.data.success !== true) {
-      return res.send(`
-        <html>
-          <head>
-            <title>Login Gagal</title>
-            <script>
-              alert("Verifikasi CAPTCHA gagal. Silakan coba lagi.");
-              window.location.href = "/masuk";
-            </script>
-          </head>
-          <body>
-            <p>Kembalikan...</p>
-          </body>
-        </html>
-      `);
-    }
-
-    // Lanjutkan dengan proses login jika CAPTCHA berhasil diverifikasi
+    const { id_masyarakat, password } = req.body;
     const response = await axios.post(
       'https://solusiadil-api.vercel.app/users/login',
       { id_masyarakat, password }
