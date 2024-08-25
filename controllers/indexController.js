@@ -16,7 +16,7 @@ exports.getindexData = async (req, res) => {
 
     res.render('index', { totalUsers, totalKonsultasi, totalApph });
   } catch (error) {
-    console.error('Error fetching blog data:', error);
-    res.status(500).send('Error fetching blog data');
+    console.error('Eror Saat Mengambil Data:', error);
+    res.status(500).send('Eror Saat Mengambil Data');
   }
 };
