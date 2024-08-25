@@ -1,9 +1,11 @@
 const axios = require('axios');
 
+//Fungsi Ke Halaman Lupa
 exports.Lupa = async (req, res) => {
   res.render("password/lupa");
 };
 
+//Fungsi Cek ID dan NIK
 exports.cekLupa = async (req, res) => {
   const { id_masyarakat, nik } = req.body;
   try {
@@ -21,6 +23,7 @@ exports.cekLupa = async (req, res) => {
   }
 };
 
+//Fungsi Perbarui Password Berdasarkan ID dan NIK
 exports.updatePassword = async (req, res) => {
   const { id_masyarakat, nik, password } = req.body;
   try {

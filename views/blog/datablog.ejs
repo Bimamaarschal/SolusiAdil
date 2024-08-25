@@ -4,9 +4,7 @@
 <%- include('../partials/head') %>
 
 	<body>
-
 		<%- include('../partials/header2', { activePage: 'blog' }) %>
-
 			<div class="textawal overlay">
 				<div class="container">
 					<div class="textawal-inner">
@@ -51,26 +49,23 @@
 				<div id="marquee-container"></div>
 			</div>
 			<%- include('../partials/footer') %>
-				<%- include('../partials/js') %>
-					<script>
-						const apiUrlBerita = 'https://solusiadil-api.vercel.app/berita';
-						async function fetchMarqueeData() {
-							const kontainerMarquee = document.getElementById('marquee-container');
-							kontainerMarquee.textContent = 'Mohon tunggu, sedang memproses pengambilan data...';
-							try {
-								const respons = await fetch(apiUrlBerita);
-								const data = await respons.json();
-								const beritaList = Object.values(data).map(item => `(${item.tag}) ${item.judul}`).join(' 🌐 ');
-								kontainerMarquee.innerHTML = `<marquee>${beritaList}</marquee>`;
-							} catch (error) {
-								console.error('Kesalahan data:', error);
-								kontainerMarquee.textContent = 'Terjadi kesalahan saat mengambil data.';
-							}
-						}
-
-						document.addEventListener('DOMContentLoaded', fetchMarqueeData);
-
-					</script>
+			<%- include('../partials/js') %>
+			<script>
+				const apiUrlBerita = 'https://solusiadil-api.vercel.app/berita';
+				async function fetchMarqueeData() {
+					const kontainerMarquee = document.getElementById('marquee-container');
+					kontainerMarquee.textContent = 'Mohon tunggu, sedang memproses pengambilan data...';
+					try {
+						const respons = await fetch(apiUrlBerita);
+						const data = await respons.json();
+						const beritaList = Object.values(data).map(item => `(${item.tag}) ${item.judul}`).join(' 🌐 ');
+						kontainerMarquee.innerHTML = `<marquee>${beritaList}</marquee>`;
+					} catch (error) {
+						console.error('Kesalahan data:', error);
+						kontainerMarquee.textContent = 'Terjadi kesalahan saat mengambil data.';
+					}
+				}
+				document.addEventListener('DOMContentLoaded', fetchMarqueeData);
+			</script>
 	</body>
-
 </html>

@@ -4,7 +4,6 @@
 <%- include('../partials/head') %>
 
 	<body>
-
 		<%- include('../partials/header2', { activePage: 'layanan' }) %>
 			<section class="news-single section" style="padding-top: 5px;">
 				<div class="container">
@@ -18,7 +17,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="col-lg-8 col-6">
 							<div class="row">
 								<div class="col-12">
@@ -41,33 +39,27 @@
 												<tbody>
 													<% aturanData.forEach(aturan=> { %>
 														<tr>
-															<td>
-																<%= aturan.id_uu %>
-															</td>
-															<td>
-																<%= aturan.jenis %>
-															</td>
-															<td>
-																<%= aturan.no %>
-															</td>
-															<td>
-																<%= aturan.tahun %>
-															</td>
-															<td>
-																<%= aturan.tentang %>
-															</td>
+															<td> <%= aturan.id_uu %> </td>
+															<td> <%= aturan.jenis %> </td>
+															<td> <%= aturan.no %> </td>
+															<td> <%= aturan.tahun %> </td>
+															<td> <%= aturan.tentang %> </td>
 															<td>
 																<form
 																	action="<%= aturan.status === 'Diproses' ? '/aturandt' : (aturan.status === 'Diproses' ? '/aturandt2' : 'bacaaturan?id_uu=' + aturan.id_uu) %>"
 																	method="get">
-																	<input type="hidden" name="id_uu" value="<%= aturan.id_uu %>">
-																	<% if (aturan.status === 'Diproses') { %>
-																		<button type="submit" class="btn-jawab">Lihat</button>
-																	<% } else if (aturan.status === 'Terbit') { %>
-																		<button type="submit" class="btn-selesai">Lihat</button>
-																	<% } else if (aturan.status === 'Gagal') { %>
-																		<button type="submit" class="btn-gagal">Lihat</button>
-																	<% } %>
+																	<input type="hidden" name="id_uu"
+																		value="<%= aturan.id_uu %>">
+																	<% if (aturan.status==='Diproses' ) { %>
+																		<button type="submit"
+																			class="btn-jawab">Lihat</button>
+																		<% } else if (aturan.status==='Terbit' ) { %>
+																			<button type="submit"
+																				class="btn-selesai">Lihat</button>
+																			<% } else if (aturan.status==='Gagal' ) { %>
+																				<button type="submit"
+																					class="btn-gagal">Lihat</button>
+																				<% } %>
 																</form>
 															</td>
 														</tr>
@@ -98,12 +90,7 @@
 												const jumlahaturanGagal1 = aturanData.filter(aturan => aturan.status ===
 												'Gagal').length;
 												%>
-												<li><i class="fa-solid fa-address-card" aria-hidden="true"></i>
-													Jumlah Seluruh Peraturan: <i
-														style="background-color:darkgrey ; padding: 5px; color:black ; border-radius: 100px;">
-														<%= totalaturan2 %>
-													</i>
-												</li>
+												<li><i class="fa-solid fa-address-card" aria-hidden="true"></i> Jumlah Seluruh Peraturan: <i style="background-color:darkgrey ; padding: 5px; color:black ; border-radius: 100px;"> <%= totalaturan2 %> </i> </li>
 										</ul>
 									</div>
 								</div>
@@ -114,8 +101,7 @@
 			</section>
 
 			<%- include('../partials/footer') %>
-
-				<%- include('../partials/js') %>
+			<%- include('../partials/js') %>
 	</body>
 
 </html>

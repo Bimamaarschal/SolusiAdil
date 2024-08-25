@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+//Fungsi Ke Halaman Aturan
 exports.getDataaturan = async (req, res) => {
     try {
       const { id_masyarakat, nama } = req.user;
@@ -13,7 +14,8 @@ exports.getDataaturan = async (req, res) => {
     }
   };
 
-  exports.aturanbacaData = async (req, res) => {
+//Fungsi Ke Baca Aturan
+exports.aturanbacaData = async (req, res) => {
     try {
       const id_uu = req.query.id_uu;
       const { id_masyarakat, nama } = req.user;

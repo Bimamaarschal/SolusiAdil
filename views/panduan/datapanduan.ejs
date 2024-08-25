@@ -13,7 +13,8 @@
 							<div class="row">
 								<div class="col-12">
 									<div class="comments-form d-flex justify-content-between align-items-center">
-										<h1 style="font-size: 18px;"><i class="fa-solid fa-compass"></i> List Panduan Hukum</h1>
+										<h1 style="font-size: 18px;"><i class="fa-solid fa-compass"></i> List Panduan
+											Hukum</h1>
 									</div>
 								</div>
 							</div>
@@ -52,14 +53,19 @@
 																<form
 																	action="<%= panduan.status === 'Diproses' ? '/panduandt' : (panduan.status === 'Diproses' ? '/panduandt2' : 'bacapanduan?id_panduan=' + panduan.id_panduan) %>"
 																	method="get">
-																	<input type="hidden" name="id_panduan" value="<%= panduan.id_panduan %>">
-																	<% if (panduan.status === 'Diproses') { %>
-																		<button type="submit" class="btn-jawab">Lihat</button>
-																	<% } else if (panduan.status === 'Terbit') { %>
-																		<button type="submit" class="btn-selesai">Lihat</button>
-																	<% } else if (panduan.status === 'Gagal') { %>
-																		<button type="submit" class="btn-gagal">Lihat</button>
-																	<% } %>
+																	<input type="hidden" name="id_panduan"
+																		value="<%= panduan.id_panduan %>">
+																	<% if (panduan.status==='Diproses' ) { %>
+																		<button type="submit"
+																			class="btn-jawab">Lihat</button>
+																		<% } else if (panduan.status==='Terbit' ) { %>
+																			<button type="submit"
+																				class="btn-selesai">Lihat</button>
+																			<% } else if (panduan.status==='Gagal' ) {
+																				%>
+																				<button type="submit"
+																					class="btn-gagal">Lihat</button>
+																				<% } %>
 																</form>
 															</td>
 														</tr>
@@ -83,9 +89,11 @@
 											<% const totalpanduan2=panduanData.length; const
 												jumlahpanduanProses1=panduanData.filter(panduan=> panduan.status ===
 												'Diproses').length;
-												const jumlahpanduanSelesai1 = panduanData.filter(panduan => panduan.status ===
+												const jumlahpanduanSelesai1 = panduanData.filter(panduan =>
+												panduan.status ===
 												'Diterima').length;
-												const jumlahpanduanGagal1 = panduanData.filter(panduan => panduan.status ===
+												const jumlahpanduanGagal1 = panduanData.filter(panduan => panduan.status
+												===
 												'Gagal').length;
 												%>
 												<li><i class="fa-solid fa-address-card" aria-hidden="true"></i>

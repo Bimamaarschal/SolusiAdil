@@ -1,4 +1,5 @@
 
+//Fungsi Ke Halaman Beranda Setelah Login
 exports.getBeranda = (req, res) => {
     if (req.user) {
       const nama = req.user.nama;

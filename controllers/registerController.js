@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+//Fungsi Menambah data User Masyarakat
 exports.registerUser = async (req, res) => {
   try {
     const {
@@ -14,7 +15,6 @@ exports.registerUser = async (req, res) => {
       password,
       tgl_lahir,
     } = req.body;
-
     const response = await axios.post(
       "https://solusiadil-api.vercel.app/users",
       {
@@ -30,7 +30,6 @@ exports.registerUser = async (req, res) => {
         tgl_lahir,
       }
     );
-
     if (response.status === 201) {
       res.send(`
         <html>

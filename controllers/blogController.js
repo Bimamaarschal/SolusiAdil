@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+//Fungsi Ke Halaman Blog
 exports.getDatablog = async (req, res) => {
     try {
       const { id_masyarakat, nama } = req.user;
@@ -13,7 +14,8 @@ exports.getDatablog = async (req, res) => {
     }
   };
 
-  exports.blogbacaData = async (req, res) => {
+//Fungsi Ke Baca Blog
+exports.blogbacaData = async (req, res) => {
     try {
       const id_blog = req.query.id_blog;
       const { id_masyarakat, nama } = req.user;
