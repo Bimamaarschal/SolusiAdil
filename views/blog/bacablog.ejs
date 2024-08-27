@@ -38,16 +38,26 @@
 							<div class="main-sidebar">
 								<div class="single-widget recent-post">
 									<h3 class="title">Blog Hukum Lainnya</h3>
-									<% const lastThreeBlogs=blogData2.slice(-3); %>
-										<% lastThreeBlogs.forEach(blogss=> { %>
-											<div class="single-post">
-												<div class="image"> <img src="img/favicon.png" alt="#"> </div>
-												<div class="content">
-													<h5><a href="bacablog?id_blog=<%= blog.id_blog %>"> <%= blogss.judul %> </a></h5>
-													<ul class="comment"> <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blogss.tanggal%> </li> </ul>
-												</div>
+									<% 
+										const lastThreeBlogs = blogData2.filter(blog => blog.status === 'Diterima').slice(-3); 
+									%>
+									<% lastThreeBlogs.forEach(blogss => { %>
+										<div class="single-post">
+											<div class="image">
+												<img src="img/favicon.png" alt="#">
 											</div>
-											<% }); %>
+											<div class="content">
+												<h5>
+													<a href="bacablog?id_blog=<%= blogss.id_blog %>">
+														<%= blogss.judul %>
+													</a>
+												</h5>
+												<ul class="comment">
+													<li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blogss.tanggal %> </li>
+												</ul>
+											</div>
+										</div>
+									<% }); %>
 								</div>
 							</div>
 						</div>
