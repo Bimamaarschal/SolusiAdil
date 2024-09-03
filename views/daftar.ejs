@@ -20,13 +20,11 @@
 
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
-							<form class="form" action="/register" method="POST">
+							<form class="form" action="/register" method="POST" onsubmit="return validateForm()">
 								<div class="row">
-									<div class="col-lg-12 col-md-12 col-12">
+									<div class="col-lg-12 col-md-12 col-12" style="display: none;">
 										<div class="form-group">
-											<small>ID Solusi Adil Anda - Mohon rahasiakan dan catat untuk dapat masuk
-												akun
-												Solusi Adil - 9 Digit</small>
+											<small>ID Solusi Adil Anda</small>
 											<input style="font-weight: bolder; color: black;" id="id_masyarakat"
 												name="id_masyarakat" type="text" readonly>
 										</div>
@@ -59,7 +57,7 @@
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<small>Tanggal Lahir</small>
-											<input id="tgl_lahir" type="date" name="tgl_lahir" id="datepicker" required>
+											<input id="tgl_lahir" type="date" name="tgl_lahir" required>
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
@@ -126,6 +124,19 @@
 			
 			<%- include('partials/footer') %>
 				<%- include('partials/js') %>
+				<script>
+					document.addEventListener('DOMContentLoaded', (event) => {
+						const today = new Date();
+						const year = today.getFullYear();
+						const month = ('0' + (today.getMonth() + 1)).slice(-2);
+						const day = ('0' + today.getDate()).slice(-2);
+						const maxDate = '2010-12-31';
+						const minDate = '1900-01-01';
+						const inputDate = document.getElementById('tgl_lahir');
+						inputDate.setAttribute('max', maxDate);
+						inputDate.setAttribute('min', minDate);
+					});
+				</script>
 					<script src="function/daftar.js"></script>
 
 	</body>

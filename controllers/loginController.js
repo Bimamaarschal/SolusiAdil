@@ -19,10 +19,10 @@ const randomString = generateRandomString(randomStringLength);
 //Fungsi Login
 exports.loginUser = async (req, res) => {
     try {
-      const { id_masyarakat, password } = req.body;
+      const { nik, password } = req.body;
       const response = await axios.post(
         'https://solusiadil-api.vercel.app/users/login',
-        { id_masyarakat, password }
+        { nik, password }
       );
       if (response.data.message === 'Login successful' && response.data.userData) {
         const userData = response.data.userData;
@@ -37,7 +37,7 @@ exports.loginUser = async (req, res) => {
           { expiresIn: '3h' }
         );
         res.cookie('token', token, { httpOnly: true });
-        res.redirect(`/beranda?${randomString}&${id_masyarakat}&${randomString}`);
+        res.redirect(`/beranda?${randomString}&${nik}&${randomString}`);
       } else {
         res.send(`
           <html>

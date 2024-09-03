@@ -59,18 +59,37 @@ function validateTLP(input) {
 }
 
 function validatePassword(input) {
-  const password = input.value;
-  const passwordMessage = document.getElementById('password-message');
-  const passwordSafeMessage = document.getElementById('password-safe-message');
-  input.value = input.value.replace(/\s/g, '');
-  const hasAlphabet = /[a-zA-Z]/.test(input.value);
-  const hasNumber = /[0-9]/.test(input.value);
-
-  if (input.value.length > 8 && hasAlphabet && hasNumber) {
-      passwordSafeMessage.style.display = 'block';
-      passwordMessage.style.display = 'none';
-  } else {
-      passwordSafeMessage.style.display = 'none';
-      passwordMessage.style.display = 'block';
+    const password = input.value;
+    const passwordMessage = document.getElementById('password-message');
+    const passwordSafeMessage = document.getElementById('password-safe-message');
+  
+    // Menghapus spasi dari input
+    input.value = input.value.replace(/\s/g, '');
+  
+    // Cek karakter alfabet dan angka
+    const hasAlphabet = /[a-zA-Z]/.test(input.value);
+    const hasNumber = /[0-9]/.test(input.value);
+  
+    // Validasi password
+    if (input.value.length > 8 && hasAlphabet && hasNumber) {
+        passwordSafeMessage.style.display = 'block';
+        passwordMessage.style.display = 'none';
+        return true; // Password valid
+    } else {
+        passwordSafeMessage.style.display = 'none';
+        passwordMessage.style.display = 'block';
+        // Tambahkan pesan khusus jika panjang password kurang dari 9 karakter
+        if (input.value.length <= 8) {
+            passwordMessage.textContent = 'Password harus lebih dari 8 karakter dan mengandung huruf serta angka.';
+        } else {
+            passwordMessage.textContent = 'Password harus mengandung huruf dan angka.';
+        }
+        return false; // Password tidak valid
+    }
   }
-}
+  
+  function validateForm() {
+    const passwordInput = document.getElementById('password');
+    // Validasi password saat submit
+    return validatePassword(passwordInput);
+  }
